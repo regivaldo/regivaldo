@@ -1,0 +1,20 @@
+$color: (
+  _background: (
+    main: #222
+  ),
+  _button: (
+    background: #000,
+    text: #fff,
+    background-hover: #f2f2f2,
+    text-hover: #000
+  )
+);
+
+@function color($map, $key) {
+  @if map-has-key($colors, $map) {
+    @return map-get(map-get($colors, $map), $key);
+  }
+
+  @warn 'Unknown `#{$map}` in #{$colors}.';
+  @return null;
+}

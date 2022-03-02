@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/index';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  @include cross-browser(font-smoothing, antialiased);
+}
+
+html {
+  font-size: 16px
+}

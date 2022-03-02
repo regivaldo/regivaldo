@@ -1,0 +1,15 @@
+@mixin cross-browser($attr, $value, $onValue: false) {
+  @if ($onValue == false) {
+    #{$attr}: $value;
+    -webkit-#{$attr}: $value;
+    -moz-osx-#{$attr}: $value;
+    -moz-#{$attr}: $value;
+    -ms-#{$attr}: $value;
+  } @else {
+    #{$attr}: $value;
+    #{$attr}: -webkit-#{$value};
+    #{$attr}: -moz-osx-#{$value};
+    #{$attr}: -moz-#{$value};
+    #{$attr}: -ms-#{$value};
+  }
+}
