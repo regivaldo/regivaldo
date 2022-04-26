@@ -1,12 +1,17 @@
-$color: (
-  _background: (
-    main: #222
+$colors: (
+  brand: (
+    main: #233F53,
+    highlight: #C57F2E
   ),
-  _button: (
-    background: #000,
-    text: #fff,
-    background-hover: #f2f2f2,
-    text-hover: #000
+  text: (
+    light: #F2F0F0,
+    dark: #111111
+  ),
+  background: (
+    element: #F2F0F0
+  ),
+  alpha: (
+    dark: rgba(17, 17, 17, .25)
   )
 );
 

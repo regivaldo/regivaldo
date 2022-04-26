@@ -1,6 +1,79 @@
 <div class="main">
-  <aside>1</aside>
-  <section>2</section>
+  <app-main-menu [menu]="menu" [social]="social"></app-main-menu>
+  <header id="inicio">
+    <div class="container">
+      <h1>Regivaldo Fernandes</h1>
+      <p>Desenvolvimento web e aplicativos móveis<br />Transformando sonhos em sites</p>
+    </div>
+  </header>
+  <section id="sobre">
+    <div class="container">
+      <h2>Regivaldo Fernandes</h2>
+      <img src="../assets/images/me.png" alt="Foto de rosto">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit id tellus volutpat aenean nunc. Sed facilisis
+        ullamcorper tempor, malesuada ultrices sagittis, massa in. Nulla quisque in in lacus amet, dui senectus gravida
+        pretium. Consectetur posuere facilisis dignissim adipiscing habitasse sit nec ornare sem. Quam ac elit quis sem
+        suspendisse nunc nibh tristique laoreet. Placerat sociis nunc suspendisse malesuada elementum. Purus nunc,
+        ultricies in scelerisque senectus risus eu commodo. Lacus a lectus nulla vestibulum est a. Nunc, hendrerit feugiat
+        in et dictumst eleifend felis, morbi. Laoreet ornare velit egestas justo. Senectus luctus arcu, duis lectus cursus
+        mauris. Porta purus tempus vitae pretium non eros, a. Viverra aliquet sit sagittis aliquam neque ultricies.
+        Faucibus massa euismod vivamus accumsan et. Eu non id lorem facilisis aenean. Donec duis ante in quis sit auctor.
+        Laoreet leo convallis in urna praesent quam. Egestas pharetra duis mattis pellentesque. Massa vitae arcu, aliquam
+        gravida faucibus ultrices sit fames. Magna eget cum a, neque, vivamus id.</p>
+    </div>
+  </section>
+  <section id="servicos">
+    <div class="container">
+      <h2>Meus Serviços</h2>
+      <ul>
+        <li>
+          <card-icon></card-icon>
+        </li>
+        <li>
+          <card-icon></card-icon>
+        </li>
+        <li>
+          <card-icon></card-icon>
+        </li>
+        <li>
+          <card-icon></card-icon>
+        </li>
+        <li>
+          <card-icon></card-icon>
+        </li>
+        <li>
+          <card-icon></card-icon>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="portfolio">
+    <div class="container">
+      <h2>Portfólio</h2>
+      <div class="cards">
+        <card-image></card-image>
+        <card-image></card-image>
+        <card-image></card-image>
+        <card-image></card-image>
+      </div>
+    </div>
+  </section>
+  <section id="contato">
+    <div class="container">
+      <h2>Contato</h2>
+      <p>Entre em contato pelas redes sociais</p>
+      <nav class="social">
+        <a [href]="item.url" *ngFor="let item of social">
+          <img [src]="'../assets/images/' + item.image" [alt]="item.name">
+        </a>
+      </nav>
+      <form action="">
+        <input type="text" name="name" id="name" placeholder="Nome">
+        <input type="email" name="email" id="email" placeholder="E-mail">
+        <input type="text" name="assunto" id="assunto" placeholder="Assunto">
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
 </div>
-
-<div class="background"></div>

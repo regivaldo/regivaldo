@@ -13,3 +13,13 @@
     #{$attr}: -ms-#{$value};
   }
 }
+
+@mixin desktop() {
+  @media (min-width: 1367px) {
+    @content;
+  }
+
+  @media (min-device-width: 1367px) {
+    @content;
+  }
+}

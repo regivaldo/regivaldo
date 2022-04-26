@@ -1,4 +1,5 @@
-@import 'assets/scss/index';
+@import 'assets/scss/color';
+@import 'assets/scss/mixins';
 
 *,
 *::after,
@@ -7,9 +8,37 @@
   padding: 0;
   outline: none;
   box-sizing: border-box;
-  @include cross-browser(font-smoothing, antialiased);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
 }
 
 html {
-  font-size: 16px
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: color('brand', 'main');
+}
+
+::-webkit-scrollbar {
+  width: .25rem;
+
+  &-track {
+    background: color('background', 'element');
+  }
+
+  &-thumb {
+    background: color('brand', 'highlight');
+
+    &:hover {
+      background: color('brand', 'main');
+    }
+  }
 }

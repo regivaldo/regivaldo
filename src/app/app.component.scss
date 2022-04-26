@@ -1,30 +1,44 @@
-@import url('~scss/index');
-
-$menu-width: 180px;
+@import '../assets/scss/color';
+@import '../assets/scss/mixins';
 
 .main {
   display: grid;
-  grid-template-columns: $menu-width calc(100vw - $menu-width);
+  width: 100%;
+  place-items: center;
+
+  header,
+  section {
+    width: 100%;
+    padding-top: 3rem;
+  }
 }
 
-aside {
-  width: 100%;
-  height: 100vh;
-  border: 1px solid red;
+.container {
+  @include desktop {
+    width: 1024px;
+    margin: 0 auto;
+
+  }
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: color('brand', 'main');
+  background-image: url('../assets/images/header.png');
 }
 
 section {
-  width: 100%;
-  height: 100vh;
-  border: 1px solid blue;
+  min-height: 100vh;
+
+  &:nth-child(odd) {
+    background-color: color('alpha', 'dark');
+  }
 }
 
-.background {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: color('_background', 'main');
-  z-index: -9;
+.social {
+  img {
+    width: 1rem;
+  }
 }
