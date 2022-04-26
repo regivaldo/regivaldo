@@ -36,6 +36,9 @@ Jutamente a este livro, possuo também um conto publicado na mesma plataforma.
 [![Suicídio](profile/suicidio.png)](https://www.amazon.com.br/dp/B012UO8RHQ)
 [![Suicide](profile/suicide.png)](https://www.amazon.com.br/dp/B01I3L0PY8)
 
+## Projetos pessoias
+* [Escoteiros.app](https://escoteiros.app)
+
 ## Sites de clientes meus:
 * [Poder Feminino em Equilibrio](https://poderfemininoemequilibrio.com.br/)
 * [Além do Passaporte](https://alemdopassaporte.com/)
