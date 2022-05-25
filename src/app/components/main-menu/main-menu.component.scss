@@ -3,24 +3,24 @@
 @import '../../../assets/scss/mixins';
 
 .menu {
-  position: fixed;
-  display: flex;
-  width: 100%;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  background-color: color('text', 'light');
+  display: none;
+
+  @include desktop {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    background-color: color('text', 'light');
+  }
 
   .container {
     display: flex;
-    width: 100%;
+    width: 1024px;
     flex-direction: column;
     justify-content: space-between;
-
-    @include desktop {
-      flex-direction: row;
-      width: 1024px;
-    }
+    flex-direction: row;
   }
 
   div {
@@ -30,7 +30,6 @@
 
     a {
       display: flex;
-      padding: .5rem 0;
       text-decoration: none;
       align-items: center;
       color: color('text', 'dark');
@@ -45,6 +44,18 @@
       img {
         width: 1rem;
         height: 1rem;
+      }
+    }
+
+    &.left {
+      a {
+        padding: 1rem .5rem;
+      }
+    }
+
+    &.right {
+      a {
+        padding: 1rem 0;
       }
     }
   }
