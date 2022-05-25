@@ -51,6 +51,18 @@ export class AppComponent {
       'Traga maior visibilidade para seu serviço ou produto através de um site intuítivo, responsivo e acessível.',
       'me.png',
       ''
+    ),
+    new Service(
+      'Desenvolvimento de websites',
+      'Traga maior visibilidade para seu serviço ou produto através de um site intuítivo, responsivo e acessível.',
+      'me.png',
+      ''
+    ),
+    new Service(
+      'Desenvolvimento de websites',
+      'Traga maior visibilidade para seu serviço ou produto através de um site intuítivo, responsivo e acessível.',
+      'me.png',
+      ''
     )
   ];
 

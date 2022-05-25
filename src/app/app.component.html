@@ -51,16 +51,18 @@
     <div class="container">
       <h2>Contato</h2>
       <p>Entre em contato pelas redes sociais</p>
+
       <nav class="social">
         <a [href]="item.url" *ngFor="let item of social">
           <img [src]="'../assets/images/' + item.image" [alt]="item.name">
         </a>
       </nav>
+
       <form action="">
-        <input type="text" name="name" id="name" placeholder="Nome">
-        <input type="email" name="email" id="email" placeholder="E-mail">
-        <input type="text" name="assunto" id="assunto" placeholder="Assunto">
-        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+        <input type="text" name="name" id="name" placeholder="Nome" required>
+        <input type="email" name="email" id="email" placeholder="E-mail" required>
+        <input type="text" name="assunto" id="assunto" placeholder="Assunto" minlength="5" maxlength="100" required>
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10" minlength="5" maxlength="100" placeholder="Mensagem" required></textarea>
         <button type="submit">Enviar</button>
       </form>
     </div>

@@ -19,6 +19,7 @@
     height: 2rem;
     border-radius: 2rem;
     border: 2px solid color('brand', 'highlight');
+    background-color: rgba(color('background', 'element'), .5);
 
     &:before {
       content: ' ';
