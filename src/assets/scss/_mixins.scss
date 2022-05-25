@@ -1,3 +1,5 @@
+$desktop-size: 1280px;
+
 @mixin cross-browser($attr, $value, $onValue: false) {
   @if ($onValue == false) {
     #{$attr}: $value;
@@ -15,11 +17,11 @@
 }
 
 @mixin desktop() {
-  @media (min-width: 1367px) {
+  @media (min-width: $desktop-size) {
     @content;
   }
 
-  @media (min-device-width: 1367px) {
+  @media (min-device-width: $desktop-size) {
     @content;
   }
 }

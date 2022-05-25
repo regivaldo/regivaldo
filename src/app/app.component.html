@@ -4,9 +4,7 @@
     <div class="container">
       <h1>Regivaldo Fernandes</h1>
       <p>Desenvolvimento web e aplicativos móveis<br />Transformando sonhos em sites</p>
-      <div class="mouse-icon">
-        <div class="icon"></div>
-      </div>
+      <app-icons></app-icons>
     </div>
   </header>
   <section id="sobre">
@@ -28,24 +26,12 @@
   <section id="servicos">
     <div class="container">
       <h2>Meus Serviços</h2>
-      <ul>
-        <li>
-          <card-icon></card-icon>
-        </li>
-        <li>
-          <card-icon></card-icon>
-        </li>
-        <li>
-          <card-icon></card-icon>
-        </li>
-        <li>
-          <card-icon></card-icon>
-        </li>
-        <li>
-          <card-icon></card-icon>
-        </li>
-        <li>
-          <card-icon></card-icon>
+      <ul class="services">
+        <li *ngFor="let service of services">
+          <app-card-icon
+            [title]="service.title"
+            [text]="service.text"
+            [image]="'../assets/images/' +  service.image"></app-card-icon>
         </li>
       </ul>
     </div>

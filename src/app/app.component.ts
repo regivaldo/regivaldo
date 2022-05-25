@@ -1,5 +1,6 @@
 import { Item } from './components/main-menu/item';
 import { Component } from '@angular/core';
+import { Service } from './models/service';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,32 @@ export class AppComponent {
     new Item('Contato', 'contato', '')
   ];
 
-  services = [];
+  services = [
+    new Service(
+      'Desenvolvimento de websites',
+      'Traga maior visibilidade para seu serviço ou produto através de um site intuítivo, responsivo e acessível.',
+      'me.png',
+      ''
+    ),
+    new Service(
+      'Desenvolvimento de websites',
+      'Traga maior visibilidade para seu serviço ou produto através de um site intuítivo, responsivo e acessível.',
+      'me.png',
+      ''
+    ),
+    new Service(
+      'Desenvolvimento de websites',
+      'Traga maior visibilidade para seu serviço ou produto através de um site intuítivo, responsivo e acessível.',
+      'me.png',
+      ''
+    ),
+    new Service(
+      'Desenvolvimento de websites',
+      'Traga maior visibilidade para seu serviço ou produto através de um site intuítivo, responsivo e acessível.',
+      'me.png',
+      ''
+    )
+  ];
 
   portfolio = [];
 }

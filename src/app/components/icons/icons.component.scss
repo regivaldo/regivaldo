@@ -1,0 +1,41 @@
+@import '../../../assets/scss/color';
+@import '../../../assets/scss/mixins';
+
+.icon {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  bottom: 1rem;
+  left: 0;
+  justify-content: center;
+
+  .mouse {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    width: 1.2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: 2px solid color('brand', 'highlight');
+
+    &:before {
+      content: ' ';
+      display: flex;
+      margin-bottom: 2px;
+      width: 2px;
+      height: 6px;
+      background-color: color('brand', 'highlight');
+      border-radius: 1rem;
+    }
+
+    &:after {
+      content: ' ';
+      width: 2px;
+      height: 2px;
+      background-color: color('brand', 'highlight');
+      border-radius: 1rem;
+    }
+  }
+}
