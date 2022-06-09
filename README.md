@@ -45,3 +45,8 @@ Jutamente a este livro, possuo também um conto publicado na mesma plataforma.
 
 ## Sites onde sou voluntário
 * [Grupo Escoteiro Marechal Rondon](https://gemr.com.br/)
+
+## Contribuições
+
+### Traduções
+* [Angular htaccess generator](https://julianpoemp.github.io/ngx-htaccess-generator/#/generator)
