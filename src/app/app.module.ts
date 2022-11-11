@@ -7,6 +7,8 @@ import { CardIconComponent } from './components/card-icon/card-icon.component';
 import { CardImageComponent } from './components/card-image/card-image.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { IconsComponent } from './components/icons/icons.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { IconsComponent } from './components/icons/icons.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

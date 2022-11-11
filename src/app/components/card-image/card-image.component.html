@@ -1,6 +1,6 @@
-<div class="card-icon">
-  <img [src]="image" [alt]="title">
+<div class="card-image">
+  <img [src]="'../../../assets/images/' + image" [alt]="title">
   <h3>{{ title }}</h3>
   <p>{{ text }}</p>
-  <a [href]="link" class="see-more">Conheça</a>
+  <a [href]="link" target="_blank" class="see-more">Conheça</a>
 </div>

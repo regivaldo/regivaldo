@@ -1,10 +1,19 @@
 <nav class="menu">
   <div class="container">
     <div class="left">
-      <a *ngFor="let item of menu" [href]="'#' + item.url" [ngClass]="isActive(item.url) ? 'active' : ''">{{ item.name }}</a>
+        <a
+          *ngFor="let item of menu"
+          [class.hidden]="!item.visible"
+          [href]="'#' + item.url"
+          [ngClass]="isActive(item.url) ? 'active' : ''"
+        >{{ item.name }}</a>
     </div>
     <div class="right">
-      <a [href]="item.url" *ngFor="let item of social" target="_blank">
+      <a
+        *ngFor="let item of social"
+        [href]="item.url"
+        target="_blank"
+      >
         <img [src]="'../assets/images/' + item.image" [alt]="item.name">
       </a>
     </div>

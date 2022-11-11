@@ -8,10 +8,15 @@ $colors: (
     dark: #111111
   ),
   background: (
-    element: #F2F0F0
+    element: #F2F0F0,
+    dark: #111111
   ),
   alpha: (
     dark: rgba(17, 17, 17, .25)
+  ),
+  form: (
+    success: #16940b,
+    failure: #940b0b
   )
 );
 

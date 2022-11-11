@@ -6,6 +6,29 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 1rem;
+
+  span {
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: color('brand', 'highlight');
+    border: .15rem solid color('brand', 'highlight');
+    border-radius: 10rem;
+    transition: .5s all;
+  }
+
+  &:hover {
+    span {
+      color: color('text', 'light');
+      background-color: color('brand', 'highlight');
+      transition: .5s all;
+    }
+  }
 
   img {
     width: 4rem;

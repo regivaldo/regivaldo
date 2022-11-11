@@ -10,6 +10,7 @@ export class CardIconComponent implements OnInit {
   @Input() title: string = '';
   @Input() text: string = '';
   @Input() image: string = '';
+  @Input() number: number = 1;
 
   constructor() { }
 
