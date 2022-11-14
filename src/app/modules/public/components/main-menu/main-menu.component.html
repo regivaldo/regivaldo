@@ -4,7 +4,7 @@
         <a
           *ngFor="let item of menu"
           [class.hidden]="!item.visible"
-          [href]="'landing#' + item.url"
+          [href]="'#' + item.url"
           [ngClass]="isActive(item.url) ? 'active' : ''"
         >{{ item.name }}</a>
     </div>
