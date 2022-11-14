@@ -10,6 +10,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { IconsComponent } from './components/icons/icons.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SocialMenuComponent } from './components/social-menu/social-menu.component';
+import { SectionComponent } from './components/section/section.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SocialMenuComponent } from './components/social-menu/social-menu.compon
     MainMenuComponent,
     IconsComponent,
     HeaderComponent,
-    SocialMenuComponent
+    SocialMenuComponent,
+    SectionComponent
   ],
   imports: [
     CommonModule,

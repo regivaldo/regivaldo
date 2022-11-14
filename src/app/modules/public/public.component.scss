@@ -1,42 +1,6 @@
 @import '../../../assets/scss/color';
 @import '../../../assets/scss/mixins';
 
-section {
-  width: 100%;
-  padding: 2rem 0;
-  min-height: 100vh;
-
-  @include desktop {
-    padding: 4rem 0;
-  }
-
-  &:nth-child(odd) {
-    background-color: color('alpha', 'dark');
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  h2 {
-    font-size: 2rem;
-    color: color('brand', 'highlight');
-    text-align: center;
-
-    @include desktop {
-      font-size: 4rem;
-    }
-  }
-
-  p {
-    line-height: 1.2;
-    text-align: justify;
-  }
-}
-
 .services,
 .cards {
   display: grid;
