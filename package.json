@@ -1,10 +1,10 @@
 {
   "name": "regivaldo",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && cp htaccess.txt dist/regivaldo/.htaccess",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
