@@ -71,3 +71,28 @@ body {
     }
   }
 }
+
+.container {
+  width: 100%;
+  padding: 0 1rem;
+
+  @include desktop {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .profile {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: .5rem;
+  }
+
+  .text {
+    p {
+      width: 640px;
+      text-indent: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

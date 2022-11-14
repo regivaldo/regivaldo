@@ -1,13 +1,17 @@
-@import '../../../assets/scss/color';
-@import '../../../assets/scss/mixins';
+@import '../../../../../assets/scss/color';
+@import '../../../../../assets/scss/mixins';
 
 .icon {
   position: absolute;
   display: flex;
   width: 100%;
   bottom: 1rem;
-  left: 0;
+  left: 50%;
   justify-content: center;
+
+  @include desktop {
+    left: 0;
+  }
 
   .mouse {
     display: flex;
