@@ -28,6 +28,6 @@ jobs:
           host: ${{ secrets.FTP_SERVER }}
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "/dist/regivaldo"
-          remoteDir: "/httpdocs"
+          localDir: ${{ github.workspace }}/dist/regivaldo
+          remoteDir: /httpdocs
           options: "--delete --asci"
