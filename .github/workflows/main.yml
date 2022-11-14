@@ -13,18 +13,15 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - uses: actions/checkout@v2
+      - run: npm i
       - run: npm run build
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Upload ftp
-      uses: sebastianpopp/ftp-action@releases/v2
-      with:
-        host: ${{ secrets.FTP_SERVER }}
-        user: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        localDir: "dist/regivaldo"
-        remoteDir: "/httpdocs"
-        options: "--delete --asci"
+      - uses: actions/checkout@v2
+      - name: Upload ftp
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: "dist/regivaldo"
+          remoteDir: "/httpdocs"
+          options: "--delete --asci"
