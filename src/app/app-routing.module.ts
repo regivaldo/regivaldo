@@ -4,11 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/landing',
-    pathMatch: 'full'
-  },
-  {
-    path: 'landing',
     loadChildren: () => import('./modules/public/public.module').then(m => m.PublicModule)
   }
 ];
