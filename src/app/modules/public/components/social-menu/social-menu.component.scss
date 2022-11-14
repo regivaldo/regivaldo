@@ -1,0 +1,10 @@
+.social {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  img {
+    width: 1.5rem;
+    filter: invert(100%)
+  }
+}

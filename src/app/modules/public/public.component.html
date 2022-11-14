@@ -1,12 +1,6 @@
 <div class="main">
   <app-main-menu [menu]="menu" [social]="social"></app-main-menu>
-  <header id="inicio">
-    <div class="container">
-      <h1>Regivaldo Fernandes</h1>
-      <p>Desenvolvimento web e aplicativos móveis<br />Transformando sonhos em sites</p>
-      <app-icons></app-icons>
-    </div>
-  </header>
+  <app-header></app-header>
   <section id="sobre">
     <div class="container">
       <h2>Regivaldo Fernandes</h2>
@@ -55,11 +49,7 @@
       <h2>Contato</h2>
       <p>Entre em contato pelas redes sociais</p>
 
-      <nav class="social">
-        <a [href]="item.url" *ngFor="let item of social">
-          <img [src]="'../assets/images/' + item.image" [alt]="item.name">
-        </a>
-      </nav>
+      <app-social-menu [social]="social"></app-social-menu>
 
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
         <div class="message success" *ngIf="showMessage">E-mail enviado com sucesso!</div>

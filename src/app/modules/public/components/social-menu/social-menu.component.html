@@ -1,0 +1,5 @@
+<nav class="social">
+  <a [href]="item.url" *ngFor="let item of social">
+    <img [src]="'../assets/images/' + item.image" [alt]="item.name">
+  </a>
+</nav>

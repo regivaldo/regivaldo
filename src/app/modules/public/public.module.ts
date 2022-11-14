@@ -8,6 +8,8 @@ import { CardIconComponent } from './components/card-icon/card-icon.component';
 import { CardImageComponent } from './components/card-image/card-image.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { IconsComponent } from './components/icons/icons.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SocialMenuComponent } from './components/social-menu/social-menu.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { IconsComponent } from './components/icons/icons.component';
     CardImageComponent,
     CardIconComponent,
     MainMenuComponent,
-    IconsComponent
+    IconsComponent,
+    HeaderComponent,
+    SocialMenuComponent
   ],
   imports: [
     CommonModule,
