@@ -17,10 +17,13 @@
 
   .container {
     display: flex;
-    width: 1024px;
     flex-direction: column;
     justify-content: space-between;
     flex-direction: row;
+
+    @include desktop {
+      width: 1024px;
+    }
   }
 
   div {

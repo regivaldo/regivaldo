@@ -1,9 +1,10 @@
+@import '~normalize.css';
 @import 'assets/scss/color';
 @import 'assets/scss/mixins';
 
 *,
-*::after,
-*::before {
+*:after,
+*:before {
   margin: 0;
   padding: 0;
   outline: none;
@@ -89,8 +90,13 @@ body {
   }
 
   .text {
+    width: 100%;
+
+    @include desktop {
+      width: 80%;
+    }
+
     p {
-      width: 640px;
       text-indent: 2rem;
       margin-bottom: 1rem;
     }

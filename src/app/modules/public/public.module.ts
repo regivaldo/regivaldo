@@ -11,6 +11,7 @@ import { IconsComponent } from './components/icons/icons.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SocialMenuComponent } from './components/social-menu/social-menu.component';
 import { SectionComponent } from './components/section/section.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SectionComponent } from './components/section/section.component';
     IconsComponent,
     HeaderComponent,
     SocialMenuComponent,
-    SectionComponent
+    SectionComponent,
+    ContactFormComponent
   ],
   imports: [
     CommonModule,

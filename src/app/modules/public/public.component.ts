@@ -91,32 +91,4 @@ export class PublicComponent {
       'Site densenvolvido com Wordpress, tendo customização de template, desenvolvimento de plugins para ferramental de controle interno e diário para usuário final.',
       'https://poderfemininoemequilibrio.com.br/')
   ];
-
-  constructor(private http: HttpClient) {}
-
-  showMessage = false;
-
-  onSubmit(contactForm: NgForm) {
-    if (contactForm.valid) {
-      const form = contactForm.value;
-      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
-      this.http.post('https://formspree.io/f/xoqbyzzl',
-        {
-          name: form.name,
-          email: form.email,
-          replyto: form.email,
-          subject: form.subject,
-          message: form.message
-        },
-        { 'headers': headers }
-      ).subscribe(
-        response => {
-          this.showMessage = true;
-          contactForm.reset();
-          console.log(response);
-        }
-      );
-    }
-  }
 }

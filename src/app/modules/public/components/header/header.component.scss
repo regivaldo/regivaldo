@@ -9,7 +9,9 @@ header {
   align-items: center;
   justify-content: center;
   background-color: color('brand', 'main');
-  background-image: url('../../../../../assets/images/header.png');
+  background-image: url('../../../../../assets/images/header.jpg');
+  background-size: cover;
+  background-blend-mode: luminosity;
 
   h1, p {
     text-align: center;

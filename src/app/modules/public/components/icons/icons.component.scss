@@ -3,13 +3,14 @@
 
 .icon {
   position: absolute;
-  display: flex;
+  display: none;
   width: 100%;
   bottom: 1rem;
   left: 50%;
   justify-content: center;
 
   @include desktop {
+    display: flex;
     left: 0;
   }
 
