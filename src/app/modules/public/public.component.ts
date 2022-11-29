@@ -34,37 +34,37 @@ export class PublicComponent {
     new Service(
       'Websites',
       'Aumente a visibilidade dos seus serviços ou produtos através de um website intuítivo, responsível, acessível e gerenciável. O desenvolvimento pode variar desde o uso de ferramentas como Wordpress ao desenvolvimento completo da solução.',
-      'me.png',
+      'me.jpg',
       ''
     ),
     new Service(
       'Landingpage',
       'Tem um produto ou serviço que precisa de um destaque? Uma landingpage pode ser a solução ideal, focado apenas no produto trará visibilidade e aumentará a retenção dos seus clientes, aumentando assim o engajamento.',
-      'me.png',
+      'me.jpg',
       ''
     ),
     new Service(
       'Sistemas',
       'Para controles complexos, assim como gerenciamento, um sistema se faz ideal. Diferente de um website, o sistema possuí controles de acessos, lógicas para facilitar seu dia a dia e tornar seus processos mais ágeis e práticos.',
-      'me.png',
+      'me.jpg',
       ''
     ),
     new Service(
       'Ferramentas',
       'Ferramenta são pequenos softwares que realizam ações individuais, como gerar uma imagem com marca d\'água ou realizar um recorte específico na imagem. Ferramentas podem ser construídas para um site ou sistema específico com objetivo de complementar.',
-      'me.png',
+      'me.jpg',
       ''
     ),
     new Service(
       'Aplicativos',
       'Muitas vezes seu cliente precisa de acessos imediatos, consultar um estoque ou mesmo uma funcionalidade de um sistema que possuí. O aplicativo torna este um processo mais fácil, já que no celular seu cliente pode acessar as funcionalidades essenciais do sistema.',
-      'me.png',
+      'me.jpg',
       ''
     ),
     new Service(
       'Consultoria',
       'Você possuí um sistema, site ou aplicativo e precisa de ajuda técnica para resolução de um problema específico? Também ofereço o serviço de consultoria, onde posso analisar o problema e te propor as soluções para a correção dele.',
-      'me.png',
+      'me.jpg',
       ''
     )
   ];
