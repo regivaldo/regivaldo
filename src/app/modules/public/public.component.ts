@@ -74,7 +74,7 @@ export class PublicComponent {
       'escoteiros-app',
       'Escoteiros.app',
       'Sistema desenvolvido com Angular, tendo no backend Next JS com Maria DB. O sistema consiste em uma ferramenta geradora de formulário que todo escoteiro precisa preencher para pedidos de especialidades.',
-      'https://gemr.com.com/'),
+      'https://escoteiros.app/'),
     new Portfolio(
       'gemr',
       'Grupo Escoteiro Marechal Rondon',
