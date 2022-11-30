@@ -22,14 +22,6 @@
     transition: .5s all;
   }
 
-  &:hover {
-    span {
-      color: color('text', 'light');
-      background-color: color('brand', 'highlight');
-      transition: .5s all;
-    }
-  }
-
   img {
     width: 4rem;
     height: 4rem;
