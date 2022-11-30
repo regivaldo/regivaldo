@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration=production && cp htaccess.txt dist/regivaldo/.htaccess",
+    "build": "ng build --configuration=production && cp htaccess.txt dist/regivaldo/.htaccess && cp src/seo.jpg dist/regivaldo/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
