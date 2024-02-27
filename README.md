@@ -1,6 +1,6 @@
 ## Olá, meu nome é <strong>Regivaldo</strong>
 
-> Desenvolver softwares é uma grande paixão, aprendi na adolescencia o básico e desde então busco maneiras de aperfeiçoar e evoluir como programador.
+> Desenvolver softwares é uma grande paixão, aprendi na adolescência o básico e desde então busco maneiras de aperfeiçoar e evoluir como programador.
 
 🔭 Hoje possuo dois projetos que gosto de destacar quando cito minha trajetória como desenvolvedor. 
 O primeiro deles é o [Ugla](https://ugla.dev), biblioteca que juntamente com meu atual time de desenvolvimento criamos para facilitar e padronizar o frontend dos projetos que trabalhamos. 
