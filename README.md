@@ -10,8 +10,8 @@ O segundo projeto é o site do grupo escoteiro na qual meus filhos atuam. O [Gru
 
 ## 🚀 Minhas Skills
 
+<code><img height="32" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/></code>
 <code><img height="32" src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular"/></code>
-<code><img height="32" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Angular"/></code>
 <code><img height="32" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript"/></code>
 <code><img height="32" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="Javascript"/></code>
 <code><img height="32" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Nodejs"/></code>
