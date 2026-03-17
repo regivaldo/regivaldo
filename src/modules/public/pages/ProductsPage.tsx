@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import ProductCard from '../components/ProductCard';
-import { useProducts } from '../hooks/useProducts';
+import { useGetProducts } from '../apis/use-get-products';
 
 const stats = [
   { icon: '🚀', value: '3', label: 'Soluções' },
@@ -21,7 +21,7 @@ const item = {
 };
 
 const ProductsPage = () => {
-  const { data: products, loading } = useProducts();
+  const { data: products = [], isLoading: loading } = useGetProducts();
 
   return (
     <div className="min-h-screen px-6 py-8 pb-20">

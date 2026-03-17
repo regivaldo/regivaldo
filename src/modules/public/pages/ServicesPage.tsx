@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import ServiceCard from '../components/ServiceCard';
-import { useServices } from '../hooks/useServices';
+import { useGetServices } from '../apis/use-get-services';
 
 const steps = [
   {
@@ -37,7 +37,7 @@ const item = {
 };
 
 const ServicesPage = () => {
-  const { data: services, loading } = useServices();
+  const { data: services = [], isLoading: loading } = useGetServices();
 
   return (
     <div className="min-h-screen px-6 py-8 pb-20">

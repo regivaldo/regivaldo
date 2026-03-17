@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import PortfolioCard from '../components/PortfolioCard';
-import { usePortfolio } from '../hooks/usePortfolio';
+import { useGetPortfolios } from '../apis/use-get-portfolios';
 
 const stats = [
   { icon: '📂', value: '3', label: 'Projetos' },
@@ -20,7 +20,7 @@ const item = {
 };
 
 const PortfolioPage = () => {
-  const { data: items, loading } = usePortfolio();
+  const { data: items = [], isLoading: loading } = useGetPortfolios();
 
   return (
     <div className="min-h-screen px-6 py-8 pb-20">

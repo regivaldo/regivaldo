@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { ContactFormData } from "../types";
-
-type Status = "idle" | "sending" | "success" | "error";
+import { usePostContato } from "../apis/use-post-contato";
 
 const ContactForm = () => {
   const [form, setForm] = useState<ContactFormData>({
@@ -11,7 +10,8 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
-  const [status, setStatus] = useState<Status>("idle");
+
+  const { mutate, isPending, isSuccess, isError } = usePostContato();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -19,18 +19,13 @@ const ContactForm = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
-
-    try {
-      // TODO: integrar com backend ou serviço de e-mail
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setStatus("success");
-      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-    } catch {
-      setStatus("error");
-    }
+    mutate(form, {
+      onSuccess: () => {
+        setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+      },
+    });
   };
 
   return (
@@ -113,18 +108,18 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        disabled={status === "sending"}
+        disabled={isPending}
         className="rounded-lg bg-gradient-to-r from-primary-600 to-accent-500 px-8 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
       >
-        {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+        {isPending ? "Enviando..." : "Enviar mensagem"}
       </button>
 
-      {status === "success" && (
+      {isSuccess && (
         <p className="text-sm text-green-400">
           Mensagem enviada com sucesso!
         </p>
       )}
-      {status === "error" && (
+      {isError && (
         <p className="text-sm text-red-400">
           Erro ao enviar. Tente novamente.
         </p>
