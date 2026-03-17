@@ -4,7 +4,7 @@ import PortfolioCard from '../components/PortfolioCard';
 import { usePortfolio } from '../hooks/usePortfolio';
 
 const stats = [
-  { icon: '📂', value: '4+', label: 'Projetos' },
+  { icon: '📂', value: '3', label: 'Projetos' },
   { icon: '🛠️', value: '8+', label: 'Tecnologias' },
   { icon: '📈', value: 'Resultados', label: 'Reais' },
 ];

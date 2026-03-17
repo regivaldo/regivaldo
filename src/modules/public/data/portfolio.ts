@@ -2,39 +2,30 @@ import type { PortfolioItem } from "../types";
 
 export const portfolioItems: PortfolioItem[] = [
   {
-    id: "taskflow",
-    title: "TaskFlow Pro",
-    client: "StartupX",
+    id: "cesar-figueiredo",
+    title: "Cesar Figueiredo",
+    client: "Designer de Marca",
     description:
-      "Sistema de gestão de projetos com kanban, chat em tempo real e relatórios automatizados para equipes ágeis.",
-    technologies: ["React", "Node.js", "PostgreSQL", "WebSocket"],
+      "Site para designer de marca com painel administrativo para gestão de conteúdo.",
+    technologies: ["React", "Firebase", "SEO", "Analytics"],
     link: "#",
   },
   {
-    id: "shopease",
-    title: "ShopEase",
-    client: "Loja Virtual Brasil",
+    id: "ge-marechal-rondon",
+    title: "Grupo Escoteiro Marechal Rondon",
+    client: "Grupo Escoteiro",
     description:
-      "E-commerce completo com mais de 5.000 produtos, integração com múltiplos gateways de pagamento e logística automatizada.",
-    technologies: ["Next.js", "Stripe", "MongoDB", "AWS"],
+      "Site para grupo escoteiro com secretaria online. Feito para escotistas e dirigentes.",
+    technologies: ["React", "PHP", "MySQL", "Google Auth", "SEO"],
     link: "#",
   },
   {
-    id: "fittrack",
-    title: "FitTrack App",
-    client: "Academia Vida Saudável",
+    id: "eu-eu-mesmo-e-isso",
+    title: "Eu, eu mesmo e é isso",
+    client: "Podcast",
     description:
-      "Aplicativo mobile para acompanhamento de treinos, nutrição e evolução física com gamificação.",
-    technologies: ["React Native", "Firebase", "Node.js", "Charts"],
-    link: "#",
-  },
-  {
-    id: "educaplus",
-    title: "EducaPlus",
-    client: "Instituto Aprender",
-    description:
-      "Plataforma EAD com videoaulas, exercícios interativos, certificados automáticos e área do aluno.",
-    technologies: ["Vue.js", "Python", "Docker", "Redis"],
+      "Design de marca do podcast, com criação de logo, cores e identidade visual completa.",
+    technologies: ["Figma", "Logo", "Podcast"],
     link: "#",
   },
 ];

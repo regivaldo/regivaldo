@@ -5,6 +5,7 @@ const PortfolioCard = ({
   client,
   description,
   technologies,
+  link,
 }: PortfolioItem) => {
   return (
     <div className="card-hover rounded-xl border border-white/10 bg-surface p-6">
@@ -25,6 +26,16 @@ const PortfolioCard = ({
           </span>
         ))}
       </div>
+      {link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-400 hover:text-accent-300 transition-colors"
+        >
+          Conheça →
+        </a>
+      )}
     </div>
   );
 };
