@@ -4,10 +4,7 @@
 
 🔭 **Sobre Mim**
 
-Hoje possuo dois projetos que gosto de destacar quando cito minha trajetória como desenvolvedor:
-
-- O primeiro deles é o **[Ugla](https://ugla.dev)**, biblioteca que, juntamente com meu atual time de desenvolvimento, criamos para facilitar e padronizar o frontend dos projetos em que trabalhamos.
-- O segundo projeto é o site do grupo escoteiro no qual meus filhos atuam: o **[Grupo Escoteiro Marechal Rondon](https://gemr.com.br)**.
+Possuo atualmente dois projetos em andamento, ambos publicados, que oferece ferramentas para escoteiros e escotistas. O primeiro deles é o [Escoteiros.app](https://escoteiros.app) e o segundo é o [Quiz Escoteiro](https://quizescoteiro.com.br/).
 
 💬 Logo mais abaixo deixarei outros sites e projetos dos quais participei, bem como outras formas de entrar em contato comigo.
 
@@ -60,6 +57,7 @@ Mas minha vida não está apenas na programação. Amo escrever e, atualmente, p
 
 - [Escoteiros.app](https://escoteiros.app)
 - [Quiz Escoteiro](https://quizescoteiro.com.br/)
+- [Where Am I?](https://chromewebstore.google.com/detail/where-am-i/fkijnmeeojpcidcgjiblldnmombiooif?authuser=0&hl=pt-BR)
 
 ### 💼 Sites de Clientes
 
