@@ -1,3 +1,0 @@
-Este é meu site, sou programador de aplicativos, sistemas e sites. Usarei o site como uma vitrine para exibir meu trabalho. Preciso de páginas como Produtos, onde apresentarei produtos digitais que ofereço, pagina POrtfólio, onde  
- mostrarei trabalhos que fiz para terceiros, falando sobre o projeto e o cliente, página Serviços, onde explico como eu trabalho, que tipo de desenvolvimento faço, página Contato onde o usuário poderá solicitar orçamentos ou enviar  
- dúvidas. O site precisa ter uma aparência moderna e futurista, gosto de cores como Azul e Laranja. Um dos lemas que gosto de usar é "transforme sonhos em software".

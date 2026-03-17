@@ -1,12 +1,17 @@
-import { Outlet } from "react-router"
+import { Outlet } from "react-router";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const PublicTemplate = () => {
-    return (
-        <div>
-            <h1>PublicTemplate</h1>
-            <Outlet />
-        </div>
-    )
-}
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
-export default PublicTemplate
+export default PublicTemplate;
