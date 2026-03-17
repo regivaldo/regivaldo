@@ -8,6 +8,7 @@ export const products: Product[] = [
     description:
       "Sistema completo de gestão escoteira. Controle de membros, progressão pessoal, atividades e comunicação entre grupos escoteiros.",
     icon: "🏕️",
+    tag: "Sistema",
     features: [
       "Gestão de membros e patrulhas",
       "Acompanhamento de progressão pessoal",
@@ -25,6 +26,7 @@ export const products: Product[] = [
     description:
       "Site de quiz interativo para escoteiros testarem seus conhecimentos. Perguntas sobre técnicas, história e valores do escotismo.",
     icon: "🧠",
+    tag: "Quiz",
     features: [
       "Quizzes temáticos por categoria",
       "Ranking de pontuação entre participantes",
@@ -42,6 +44,7 @@ export const products: Product[] = [
     description:
       "Aplicativo mobile do clássico jogo Stop (Adedonha) reinventado. Jogue com amigos em tempo real com categorias personalizáveis.",
     icon: "🎮",
+    tag: "Aplicativo",
     features: [
       "Partidas multiplayer em tempo real",
       "Categorias personalizáveis",

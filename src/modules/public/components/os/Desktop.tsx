@@ -30,7 +30,7 @@ export default function Desktop() {
         Transforme sonhos em software
       </h1>
       <p className="text-slate-400 text-sm sm:text-base mb-12 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-        Regivaldo OS v1.0
+        Regivaldo Fernandes
       </p>
 
       {/* Icons grid */}

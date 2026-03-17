@@ -4,6 +4,7 @@ export interface Product {
   title: string;
   description: string;
   icon: string;
+  tag?: string;
   features: string[];
   link?: string;
   linkLabel?: string;
