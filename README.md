@@ -1,81 +1,75 @@
-# Olá, meu nome é Regivaldo 👋
+# React + TypeScript + Vite
 
-> Desenvolver softwares é uma grande paixão. Aprendi na adolescência o básico e desde então busco maneiras de aperfeiçoar e evoluir como programador.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-🔭 **Sobre Mim**
+Currently, two official plugins are available:
 
-Possuo atualmente dois projetos em andamento, ambos publicados, que oferece ferramentas para escoteiros e escotistas. O primeiro deles é o [Escoteiros.app](https://escoteiros.app) e o segundo é o [Quiz Escoteiro](https://quizescoteiro.com.br/).
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-💬 Logo mais abaixo deixarei outros sites e projetos dos quais participei, bem como outras formas de entrar em contato comigo.
+## React Compiler
 
-<br>
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-## 🚀 Minhas Skills
+Note: This will impact Vite dev & build performances.
 
-<div>
-  <img height="32" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
-  <img height="32" src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular"/>
-  <img height="32" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img height="32" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript"/>
-  <img height="32" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
-  <img height="32" src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="SASS"/>
-  <img height="32" src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java"/>
-</div>
+## Expanding the ESLint configuration
 
-<br>
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## 📊 Estatísticas do GitHub
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-<div align="center">
-  <a href="https://github.com/regivaldo">
-    <img src="https://github-readme-stats.vercel.app/api?username=regivaldo&theme=radical&show_icons=true&hide_border=true" alt="Estatísticas do Regivaldo" />
-  </a>
-  <a href="https://github.com/regivaldo">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=regivaldo&theme=radical&show_icons=true&hide_border=true&layout=compact" alt="Linguagens mais usadas" />
-  </a>
-</div>
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-<br>
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## 📚 Escritor
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Mas minha vida não está apenas na programação. Amo escrever e, atualmente, possuo um livro no formato e-book publicado na Amazon. Juntamente a este livro, possuo também um conto publicado na mesma plataforma.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-### Minhas Publicações
-
-<div style="display: flex; gap: 10px;">
-  <a href="https://www.amazon.com.br/dp/B00LCCX548"><img src="profile/vinganca.png" alt="Vingança" width="150" /></a>
-  <a href="https://www.amazon.com.br/dp/B012UO8RHQ"><img src="profile/suicidio.png" alt="Suicídio" width="150" /></a>
-  <a href="https://www.amazon.com.br/dp/B01I3L0PY8"><img src="profile/suicide.png" alt="Suicide" width="150" /></a>
-</div>
-
-<br>
-
-## 💻 Projetos & Portfólio
-
-### 🏕️ Projetos Pessoais
-
-- [Escoteiros.app](https://escoteiros.app)
-- [Quiz Escoteiro](https://quizescoteiro.com.br/)
-- [Where Am I?](https://chromewebstore.google.com/detail/where-am-i/fkijnmeeojpcidcgjiblldnmombiooif?authuser=0&hl=pt-BR)
-
-### 💼 Sites de Clientes
-
-- [Cesar Figueiredo](https://cesarfigueiredo.com.br/)
-
-### ⚜️ Sites onde sou voluntário
-
-- [Grupo Escoteiro Marechal Rondon](https://gemr.com.br/)
-
-### 🌍 Contribuições Open Source
-
-**Traduções:**
-
-- [Angular htaccess generator](https://julianpoemp.github.io/ngx-htaccess-generator/#/generator)
-
-<br>
-
-## 📫 Contato & Redes Sociais
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/regivaldo-silva/)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://web.whatsapp.com/send?phone=5519996995631)
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
