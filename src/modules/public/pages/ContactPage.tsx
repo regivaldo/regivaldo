@@ -1,43 +1,61 @@
-import ContactForm from "../components/ContactForm";
+import { Link } from 'react-router';
+import { motion } from 'motion/react';
+import ContactForm from '../components/ContactForm';
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const ContactPage = () => {
   return (
-    <>
-      {/* Hero */}
-      <section className="relative px-4 py-16 text-center sm:py-20">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(59,130,246,0.1),transparent)]" />
-        <h1 className="text-3xl font-extrabold sm:text-4xl">
-          <span className="gradient-text">Contato</span>
-        </h1>
-        <p className="mt-3 text-slate-400">
-          Vamos conversar sobre o seu próximo projeto
-        </p>
-      </section>
+    <div className="min-h-screen px-6 py-8 pb-20">
+      <Link
+        to="/"
+        className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
+      >
+        ← Desktop
+      </Link>
 
-      {/* Content */}
-      <section className="px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-5">
-          {/* Form */}
-          <div className="lg:col-span-3">
-            <div className="rounded-xl border border-white/10 bg-surface p-6 sm:p-8">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={container}
+        className="mt-6 max-w-5xl mx-auto"
+      >
+        {/* Header */}
+        <motion.div variants={item} className="mb-10">
+          <span className="text-5xl">✉️</span>
+          <h1 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text">Contato</h1>
+          <p className="mt-2 text-slate-400">
+            Vamos conversar sobre o seu próximo projeto
+          </p>
+        </motion.div>
+
+        {/* 2-column layout */}
+        <div className="grid gap-8 lg:grid-cols-5">
+          <motion.div variants={item} className="lg:col-span-3">
+            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
               <ContactForm />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Info */}
-          <div className="lg:col-span-2">
-            <div className="rounded-xl border border-white/10 bg-surface p-6 sm:p-8">
-              <h2 className="text-lg font-semibold text-slate-100">
+          <motion.div variants={item} className="lg:col-span-2">
+            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
+              <h3 className="text-lg font-semibold text-slate-100">
                 Informações de contato
-              </h2>
+              </h3>
               <div className="mt-6 space-y-5">
                 <div>
                   <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
                     E-mail
                   </p>
-                  <p className="mt-1 text-sm text-slate-300">
-                    regivaldo@email.com
-                  </p>
+                  <p className="mt-1 text-sm text-slate-300">regivaldo@email.com</p>
                 </div>
                 <div>
                   <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
@@ -70,10 +88,10 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
-    </>
+      </motion.div>
+    </div>
   );
 };
 

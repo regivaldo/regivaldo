@@ -1,16 +1,27 @@
-import { Outlet } from "react-router";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import { useState } from 'react';
+import { Outlet } from 'react-router';
+import { WindowManagerContext, useWindowManagerProvider } from '../hooks/useWindowManager';
+import BackgroundEffects from '../components/os/BackgroundEffects';
+import Taskbar from '../components/os/Taskbar';
+import BootScreen from '../components/os/BootScreen';
+import AboutWindow from '../components/os/AboutWindow';
 
 const PublicTemplate = () => {
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const value = useWindowManagerProvider(aboutOpen, setAboutOpen);
+
   return (
-    <div className="flex min-h-screen flex-col">
-      <Navbar />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <WindowManagerContext.Provider value={value}>
+      <div className="relative min-h-screen overflow-hidden pb-12">
+        <BootScreen />
+        <BackgroundEffects />
+        <main className="relative z-10">
+          <Outlet />
+        </main>
+        <AboutWindow />
+        <Taskbar />
+      </div>
+    </WindowManagerContext.Provider>
   );
 };
 
