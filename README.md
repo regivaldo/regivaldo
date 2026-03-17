@@ -2,8 +2,8 @@
 
 > Desenvolver softwares é uma grande paixão, aprendi na adolescência o básico e desde então busco maneiras de aperfeiçoar e evoluir como programador.
 
-🔭 Hoje possuo dois projetos que gosto de destacar quando cito minha trajetória como desenvolvedor. 
-O primeiro deles é o [Ugla](https://ugla.dev), biblioteca que juntamente com meu atual time de desenvolvimento criamos para facilitar e padronizar o frontend dos projetos que trabalhamos. 
+🔭 Hoje possuo dois projetos que gosto de destacar quando cito minha trajetória como desenvolvedor.
+O primeiro deles é o [Ugla](https://ugla.dev), biblioteca que juntamente com meu atual time de desenvolvimento criamos para facilitar e padronizar o frontend dos projetos que trabalhamos.
 O segundo projeto é o site do grupo escoteiro na qual meus filhos atuam. O [Grupo Escoteiro Marechal Rondon](https://gemr.com.br).
 
 💬 Logo mais abaixo deixarei outros sites e projetos que participei, bem como outras formas de entrar em contato comigo.
@@ -19,33 +19,41 @@ O segundo projeto é o site do grupo escoteiro na qual meus filhos atuam. O [Gru
 <code><img height="32" src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java"/></code>
 
 ## No github
+
 [![card](https://github-readme-stats.vercel.app/api?username=regivaldo&theme=radical)](https://github.com/iuricode/)
 
 ## Redes Sociais
+
 [![LinkdIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/regivaldo-silva/)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://web.whatsapp.com//send?phone=5519996995631)
 
 ## Escritor
+
 Mas minha vida não está apenas na programação.
 Amo escrever, e atualmente possuo um livro no formato ebook publicado na Amazon.
 Jutamente a este livro, possuo também um conto publicado na mesma plataforma.
 
 ## Minhas publicações
+
 [![Vingança](profile/vinganca.png)](https://www.amazon.com.br/dp/B00LCCX548)
 [![Suicídio](profile/suicidio.png)](https://www.amazon.com.br/dp/B012UO8RHQ)
 [![Suicide](profile/suicide.png)](https://www.amazon.com.br/dp/B01I3L0PY8)
 
 ## Projetos pessoias
-* [Escoteiros.app](https://escoteiros.app)
+
+- [Escoteiros.app](https://escoteiros.app)
+- [Quiz Escoteiro](https://quizescoteiro.com.br/)
 
 ## Sites de clientes meus:
-* [Poder Feminino em Equilibrio](https://poderfemininoemequilibrio.com.br/)
-* [Além do Passaporte](https://alemdopassaporte.com/)
+
+- [Cesar Figueiredo](https://cesarfigueiredo.com.br/)
 
 ## Sites onde sou voluntário
-* [Grupo Escoteiro Marechal Rondon](https://gemr.com.br/)
+
+- [Grupo Escoteiro Marechal Rondon](https://gemr.com.br/)
 
 ## Contribuições
 
 ### Traduções
-* [Angular htaccess generator](https://julianpoemp.github.io/ngx-htaccess-generator/#/generator)
+
+- [Angular htaccess generator](https://julianpoemp.github.io/ngx-htaccess-generator/#/generator)
