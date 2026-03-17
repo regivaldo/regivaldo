@@ -1,10 +1,12 @@
 export interface Product {
   id: string;
+  slug: string;
   title: string;
   description: string;
   icon: string;
   features: string[];
   link?: string;
+  linkLabel?: string;
 }
 
 export interface PortfolioItem {

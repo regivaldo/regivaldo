@@ -4,7 +4,7 @@ import ProductCard from '../components/ProductCard';
 import { useProducts } from '../hooks/useProducts';
 
 const stats = [
-  { icon: '🚀', value: '4', label: 'Soluções' },
+  { icon: '🚀', value: '3', label: 'Soluções' },
   { icon: '🌐', value: 'Web & Mobile', label: 'Plataformas' },
   { icon: '⚡', value: 'Alta', label: 'Performance' },
   { icon: '🎯', value: 'Sob', label: 'Medida' },

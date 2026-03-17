@@ -26,7 +26,7 @@ export function useWindowManagerProvider(aboutOpen: boolean, setAboutOpen: (v: b
   const navigate = useNavigate();
 
   const activeApp = useMemo(() => {
-    return desktopApps.find((a) => a.route && location.pathname === a.route) ?? null;
+    return desktopApps.find((a) => a.route && (location.pathname === a.route || location.pathname.startsWith(a.route + '/'))) ?? null;
   }, [location.pathname]);
 
   const windows: WindowState[] = useMemo(() => {
