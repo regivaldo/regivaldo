@@ -5,20 +5,33 @@ import Footer from '../components/Footer';
 const PublicTemplate = () => {
   return (
     <div className="relative min-h-screen">
-      {/* Ambient background */}
-      <div className="fixed inset-0 pointer-events-none" aria-hidden>
+      {/* Ambient background with animated orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div
-          className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-40"
+          className="absolute w-[700px] h-[700px] rounded-full opacity-35"
           style={{
-            background: 'radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)',
-            transform: 'translate(-30%, -30%)',
+            top: '-10%',
+            left: '-15%',
+            background: 'radial-gradient(circle, rgba(59,130,246,0.20) 0%, transparent 65%)',
+            animation: 'orb-drift 20s ease-in-out infinite',
           }}
         />
         <div
-          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-30"
+          className="absolute w-[500px] h-[500px] rounded-full opacity-25"
           style={{
-            background: 'radial-gradient(circle, rgba(249,115,22,0.14) 0%, transparent 70%)',
-            transform: 'translate(30%, 30%)',
+            bottom: '-5%',
+            right: '-10%',
+            background: 'radial-gradient(circle, rgba(249,115,22,0.16) 0%, transparent 65%)',
+            animation: 'orb-drift 25s ease-in-out infinite reverse',
+          }}
+        />
+        <div
+          className="absolute w-[400px] h-[400px] rounded-full opacity-15"
+          style={{
+            top: '40%',
+            right: '20%',
+            background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 60%)',
+            animation: 'orb-drift 18s ease-in-out 3s infinite',
           }}
         />
       </div>

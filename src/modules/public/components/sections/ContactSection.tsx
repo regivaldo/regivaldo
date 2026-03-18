@@ -11,21 +11,27 @@ const ContactSection = () => {
           subtitle="Vamos conversar sobre o seu próximo projeto"
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-          className="grid gap-8 lg:grid-cols-5"
-        >
-          <div className="lg:col-span-3">
-            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
+        <div className="grid gap-8 lg:grid-cols-5">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-3"
+          >
+            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/15 transition-colors duration-300">
               <ContactForm />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-2">
-            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-2"
+          >
+            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/15 transition-colors duration-300">
               <h3 className="text-lg font-semibold text-slate-100">
                 Informações de contato
               </h3>
@@ -51,7 +57,7 @@ const ContactSection = () => {
                       href="https://github.com/regivaldo"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-slate-400 transition-colors hover:text-accent-400"
+                      className="text-sm text-slate-400 transition-all duration-300 hover:text-accent-400 hover:translate-x-0.5"
                     >
                       GitHub
                     </a>
@@ -59,7 +65,7 @@ const ContactSection = () => {
                       href="https://www.linkedin.com/in/regivaldo-silva/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-slate-400 transition-colors hover:text-accent-400"
+                      className="text-sm text-slate-400 transition-all duration-300 hover:text-accent-400 hover:translate-x-0.5"
                     >
                       LinkedIn
                     </a>
@@ -67,8 +73,8 @@ const ContactSection = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
