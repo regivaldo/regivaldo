@@ -54,6 +54,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 0.15em;
 }
 
 /* Animated gradient shimmer on text */
@@ -71,6 +72,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradient-shimmer 4s ease-in-out infinite;
+  padding-bottom: 0.15em;
 }
 
 @keyframes gradient-shimmer {
