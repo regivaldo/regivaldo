@@ -6,6 +6,7 @@ const menuItems = [
   { to: '/admin/produtos', label: 'Produtos', icon: '📦', end: false },
   { to: '/admin/portfolio', label: 'Portfólio', icon: '🎨', end: false },
   { to: '/admin/servicos', label: 'Serviços', icon: '⚙️', end: false },
+  { to: '/admin/social', label: 'Redes Sociais', icon: '🔗', end: false },
 ];
 
 export default function Sidebar() {

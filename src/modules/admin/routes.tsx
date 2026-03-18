@@ -7,6 +7,8 @@ import PortfolioAdminPage from "./pages/PortfolioAdminPage";
 import PortfolioFormAdminPage from "./pages/PortfolioFormAdminPage";
 import ServicesAdminPage from "./pages/ServicesAdminPage";
 import ServiceFormAdminPage from "./pages/ServiceFormAdminPage";
+import SocialLinksAdminPage from "./pages/SocialLinksAdminPage";
+import SocialLinkFormAdminPage from "./pages/SocialLinkFormAdminPage";
 
 export const adminRoutes: RouteObject = {
   path: "/admin",
@@ -27,6 +29,11 @@ export const adminRoutes: RouteObject = {
       path: "servicos",
       element: <ServicesAdminPage />,
       children: [{ path: ":id", element: <ServiceFormAdminPage /> }],
+    },
+    {
+      path: "social",
+      element: <SocialLinksAdminPage />,
+      children: [{ path: ":id", element: <SocialLinkFormAdminPage /> }],
     },
   ],
 };

@@ -28,6 +28,14 @@ export interface Service {
   details: string[];
 }
 
+export interface SocialLink {
+  id: string;
+  label: string;
+  icon: string;
+  url: string;
+  helpText?: string;
+}
+
 export interface ContactFormData {
   name: string;
   email: string;
