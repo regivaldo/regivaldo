@@ -8,7 +8,7 @@ function Particles() {
         key: i,
         left: `${(i * 17 + 5) % 100}%`,
         bottom: `${(i * 13 + 2) % 30}%`,
-        color: isOrange ? 'rgba(249,115,22,0.4)' : 'rgba(59,130,246,0.4)',
+        color: isOrange ? 'rgba(249,115,22,0.7)' : 'rgba(59,130,246,0.7)',
         duration: `${10 + (i % 8) * 2}s`,
         delay: `${(i % 5) * 2}s`,
         size: `${2 + (i % 3)}px`,
@@ -45,16 +45,16 @@ export default function BackgroundEffects() {
 
       {/* Ambient radial glows */}
       <div
-        className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-30"
+        className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-50"
         style={{
-          background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%)',
           transform: 'translate(-30%, -30%)',
         }}
       />
       <div
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-25"
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-40"
         style={{
-          background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(249,115,22,0.20) 0%, transparent 70%)',
           transform: 'translate(30%, 30%)',
         }}
       />

@@ -6,11 +6,9 @@ import type { WindowState } from '../types/os';
 interface WindowManagerContextValue {
   windows: WindowState[];
   activeWindowId: string | null;
-  aboutOpen: boolean;
   openApp: (appId: string) => void;
   closeWindow: (appId: string) => void;
   toggleMinimize: (appId: string) => void;
-  setAboutOpen: (open: boolean) => void;
 }
 
 export const WindowManagerContext = createContext<WindowManagerContextValue | null>(null);
@@ -21,7 +19,7 @@ export function useWindowManager() {
   return ctx;
 }
 
-export function useWindowManagerProvider(aboutOpen: boolean, setAboutOpen: (v: boolean) => void) {
+export function useWindowManagerProvider() {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -40,26 +38,18 @@ export function useWindowManagerProvider(aboutOpen: boolean, setAboutOpen: (v: b
     (appId: string) => {
       const app = desktopApps.find((a) => a.id === appId);
       if (!app) return;
-      if (app.id === 'sobre') {
-        setAboutOpen(true);
-        return;
-      }
       if (app.route) {
         navigate(app.route);
       }
     },
-    [navigate, setAboutOpen],
+    [navigate],
   );
 
   const closeWindow = useCallback(
-    (appId: string) => {
-      if (appId === 'sobre') {
-        setAboutOpen(false);
-        return;
-      }
+    (_appId: string) => {
       navigate('/');
     },
-    [navigate, setAboutOpen],
+    [navigate],
   );
 
   const toggleMinimize = useCallback(
@@ -79,12 +69,10 @@ export function useWindowManagerProvider(aboutOpen: boolean, setAboutOpen: (v: b
     () => ({
       windows,
       activeWindowId,
-      aboutOpen,
       openApp,
       closeWindow,
       toggleMinimize,
-      setAboutOpen,
     }),
-    [windows, activeWindowId, aboutOpen, openApp, closeWindow, toggleMinimize, setAboutOpen],
+    [windows, activeWindowId, openApp, closeWindow, toggleMinimize],
   );
 }

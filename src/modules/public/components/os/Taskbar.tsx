@@ -6,12 +6,11 @@ import Clock from './Clock';
 import Weather from './Weather';
 
 export default function Taskbar() {
-  const { activeWindowId, aboutOpen, toggleMinimize, openApp } = useWindowManager();
+  const { activeWindowId, toggleMinimize } = useWindowManager();
   const location = useLocation();
   const navigate = useNavigate();
 
   const activeApp = activeWindowId ? desktopApps.find((a) => a.id === activeWindowId) : null;
-  const aboutApp = desktopApps.find((a) => a.id === 'sobre')!;
 
   // Detect product detail sub-route
   const productSlugMatch = location.pathname.match(/^\/produtos\/(.+)$/);
@@ -54,20 +53,6 @@ export default function Taskbar() {
           >
             <span>{activeProduct.icon}</span>
             <span className="hidden sm:inline">{activeProduct.title}</span>
-          </button>
-        )}
-        {aboutOpen && (
-          <button
-            onClick={() => openApp('sobre')}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all"
-            style={{
-              background: `${aboutApp.color}18`,
-              border: `1px solid ${aboutApp.color}55`,
-              color: aboutApp.color,
-            }}
-          >
-            <span>{aboutApp.icon}</span>
-            <span className="hidden sm:inline">{aboutApp.name}</span>
           </button>
         )}
       </div>

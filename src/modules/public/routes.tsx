@@ -6,6 +6,7 @@ import PortfolioPage from "./pages/PortfolioPage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import AboutPage from "./pages/AboutPage";
 
 export const publicRoutes: RouteObject = {
   path: "/",
@@ -17,5 +18,6 @@ export const publicRoutes: RouteObject = {
     { path: "portfolio", element: <PortfolioPage /> },
     { path: "servicos", element: <ServicesPage /> },
     { path: "contato", element: <ContactPage /> },
+    { path: "sobre", element: <AboutPage /> },
   ],
 };
