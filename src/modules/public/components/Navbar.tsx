@@ -1,19 +1,43 @@
-import { useState } from "react";
-import { NavLink } from "react-router";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/produtos", label: "Produtos" },
-  { to: "/portfolio", label: "Portfólio" },
-  { to: "/servicos", label: "Serviços" },
-  { to: "/contato", label: "Contato" },
+  { to: "/", anchor: "#hero", label: "Home" },
+  { to: "/sobre", anchor: "#sobre", label: "Sobre" },
+  { to: "/produtos", anchor: "#produtos", label: "Produtos" },
+  { to: "/portfolio", anchor: "#portfolio", label: "Portfólio" },
+  { to: "/servicos", anchor: "#servicos", label: "Serviços" },
+  { to: "/contato", anchor: "#contato", label: "Contato" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleClick = (anchor: string) => {
+    setOpen(false);
+    if (isHome) {
+      const el = document.querySelector(anchor);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <nav className="glass sticky top-0 z-50">
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "glass shadow-lg shadow-black/20"
+          : "bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <NavLink to="/" className="text-xl font-bold tracking-tight">
           <span className="gradient-text">Regivaldo</span>
@@ -21,21 +45,32 @@ const Navbar = () => {
 
         {/* Desktop */}
         <ul className="hidden gap-8 md:flex">
-          {links.map((l) => (
-            <li key={l.to}>
-              <NavLink
-                to={l.to}
-                end={l.to === "/"}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition-colors hover:text-accent-400 ${
-                    isActive ? "text-accent-400" : "text-slate-300"
-                  }`
-                }
-              >
-                {l.label}
-              </NavLink>
-            </li>
-          ))}
+          {links.map((l) =>
+            isHome && l.anchor ? (
+              <li key={l.anchor}>
+                <button
+                  onClick={() => handleClick(l.anchor)}
+                  className="text-sm font-medium text-slate-300 transition-colors hover:text-accent-400 cursor-pointer"
+                >
+                  {l.label}
+                </button>
+              </li>
+            ) : (
+              <li key={l.to}>
+                <NavLink
+                  to={l.to}
+                  end={l.to === "/"}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition-colors hover:text-accent-400 ${
+                      isActive ? "text-accent-400" : "text-slate-300"
+                    }`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            )
+          )}
         </ul>
 
         {/* Mobile toggle */}
@@ -71,23 +106,34 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="border-t border-white/10 px-4 pb-4 md:hidden">
-          {links.map((l) => (
-            <li key={l.to}>
-              <NavLink
-                to={l.to}
-                end={l.to === "/"}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `block py-2 text-sm font-medium transition-colors hover:text-accent-400 ${
-                    isActive ? "text-accent-400" : "text-slate-300"
-                  }`
-                }
-              >
-                {l.label}
-              </NavLink>
-            </li>
-          ))}
+        <ul className="border-t border-white/10 px-4 pb-4 md:hidden glass">
+          {links.map((l) =>
+            isHome && l.anchor ? (
+              <li key={l.anchor}>
+                <button
+                  onClick={() => handleClick(l.anchor)}
+                  className="block w-full text-left py-2 text-sm font-medium text-slate-300 transition-colors hover:text-accent-400 cursor-pointer"
+                >
+                  {l.label}
+                </button>
+              </li>
+            ) : (
+              <li key={l.to}>
+                <NavLink
+                  to={l.to}
+                  end={l.to === "/"}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `block py-2 text-sm font-medium transition-colors hover:text-accent-400 ${
+                      isActive ? "text-accent-400" : "text-slate-300"
+                    }`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            )
+          )}
         </ul>
       )}
     </nav>

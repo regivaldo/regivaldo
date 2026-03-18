@@ -21,9 +21,6 @@ const LoginPage = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-      {/* Background grid */}
-      <div className="animated-grid fixed inset-0" />
-
       {/* Ambient glows */}
       <div
         className="fixed top-0 left-0 w-[600px] h-[600px] rounded-full opacity-50 pointer-events-none"

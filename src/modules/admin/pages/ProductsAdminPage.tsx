@@ -2,7 +2,7 @@ import { Link, Outlet, useMatch } from 'react-router';
 import { motion } from 'motion/react';
 import { useGetProducts } from '../../public/apis/use-get-products';
 import SlidePanel from '../components/SlidePanel';
-import AdminWindow from '../components/AdminWindow';
+import AdminPanel from '../components/AdminPanel';
 
 const container = {
   hidden: {},
@@ -20,7 +20,7 @@ const ProductsAdminPage = () => {
 
   return (
     <div className="flex gap-0 w-full">
-      <AdminWindow title="Produtos" icon="📦">
+      <AdminPanel title="Produtos" icon="📦">
         <motion.div initial="hidden" animate="visible" variants={container} className="space-y-6">
           <motion.div variants={item} className="flex items-center justify-between">
             <p className="text-sm text-slate-400">{products.length} produto(s) cadastrado(s)</p>
@@ -61,7 +61,7 @@ const ProductsAdminPage = () => {
             </div>
           )}
         </motion.div>
-      </AdminWindow>
+      </AdminPanel>
 
       <SlidePanel open={Boolean(hasChild)} backTo="/admin/produtos">
         <Outlet />

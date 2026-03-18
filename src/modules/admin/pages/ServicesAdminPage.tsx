@@ -2,7 +2,7 @@ import { Link, Outlet, useMatch } from 'react-router';
 import { motion } from 'motion/react';
 import { useGetServices } from '../../public/apis/use-get-services';
 import SlidePanel from '../components/SlidePanel';
-import AdminWindow from '../components/AdminWindow';
+import AdminPanel from '../components/AdminPanel';
 
 const container = {
   hidden: {},
@@ -20,7 +20,7 @@ const ServicesAdminPage = () => {
 
   return (
     <div className="flex gap-0 w-full">
-      <AdminWindow title="Serviços" icon="⚙️">
+      <AdminPanel title="Serviços" icon="⚙️">
         <motion.div initial="hidden" animate="visible" variants={container} className="space-y-6">
           <motion.div variants={item} className="flex items-center justify-between">
             <p className="text-sm text-slate-400">{services.length} serviço(s) cadastrado(s)</p>
@@ -54,7 +54,7 @@ const ServicesAdminPage = () => {
             </div>
           )}
         </motion.div>
-      </AdminWindow>
+      </AdminPanel>
 
       <SlidePanel open={Boolean(hasChild)} backTo="/admin/servicos">
         <Outlet />

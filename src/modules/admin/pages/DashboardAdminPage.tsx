@@ -26,7 +26,7 @@ const item = {
 
 const DashboardAdminPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-104px)]">
+    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-48px)]">
       {/* Welcome */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}

@@ -2,7 +2,7 @@ import { Link, Outlet, useMatch } from 'react-router';
 import { motion } from 'motion/react';
 import { useGetPortfolios } from '../../public/apis/use-get-portfolios';
 import SlidePanel from '../components/SlidePanel';
-import AdminWindow from '../components/AdminWindow';
+import AdminPanel from '../components/AdminPanel';
 
 const container = {
   hidden: {},
@@ -20,7 +20,7 @@ const PortfolioAdminPage = () => {
 
   return (
     <div className="flex gap-0 w-full">
-      <AdminWindow title="Portfólio" icon="🎨">
+      <AdminPanel title="Portfólio" icon="🎨">
         <motion.div initial="hidden" animate="visible" variants={container} className="space-y-6">
           <motion.div variants={item} className="flex items-center justify-between">
             <p className="text-sm text-slate-400">{items.length} projeto(s) cadastrado(s)</p>
@@ -64,7 +64,7 @@ const PortfolioAdminPage = () => {
             </div>
           )}
         </motion.div>
-      </AdminWindow>
+      </AdminPanel>
 
       <SlidePanel open={Boolean(hasChild)} backTo="/admin/portfolio">
         <Outlet />

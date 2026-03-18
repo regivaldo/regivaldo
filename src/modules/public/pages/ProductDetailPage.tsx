@@ -18,7 +18,7 @@ const ProductDetailPage = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen px-6 py-8 pb-20">
+      <div className="min-h-screen px-6 py-8 pb-8">
         <Link
           to="/produtos"
           className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
@@ -45,7 +45,7 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <div className="min-h-screen px-6 py-8 pb-20">
+    <div className="min-h-screen px-6 py-8 pb-8">
       <Link
         to="/produtos"
         className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"

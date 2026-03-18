@@ -1,43 +1,30 @@
 import { motion } from 'motion/react';
-import ContactForm from '../components/ContactForm';
+import SectionTitle from '../SectionTitle';
+import ContactForm from '../ContactForm';
 
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const ContactPage = () => {
+const ContactSection = () => {
   return (
-    <div className="min-h-screen px-6 py-8 pb-8">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={container}
-        className="mt-6 max-w-5xl mx-auto"
-      >
-        {/* Header */}
-        <motion.div variants={item} className="mb-10">
-          <span className="text-5xl">✉️</span>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text">Contato</h1>
-          <p className="mt-2 text-slate-400">
-            Vamos conversar sobre o seu próximo projeto
-          </p>
-        </motion.div>
+    <section id="contato" className="section-alt py-20 px-4">
+      <div className="mx-auto max-w-5xl">
+        <SectionTitle
+          title="Contato"
+          subtitle="Vamos conversar sobre o seu próximo projeto"
+        />
 
-        {/* 2-column layout */}
-        <div className="grid gap-8 lg:grid-cols-5">
-          <motion.div variants={item} className="lg:col-span-3">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="grid gap-8 lg:grid-cols-5"
+        >
+          <div className="lg:col-span-3">
             <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
               <ContactForm />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={item} className="lg:col-span-2">
+          <div className="lg:col-span-2">
             <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
               <h3 className="text-lg font-semibold text-slate-100">
                 Informações de contato
@@ -69,7 +56,7 @@ const ContactPage = () => {
                       GitHub
                     </a>
                     <a
-                      href="https://linkedin.com/in/regivaldo"
+                      href="https://www.linkedin.com/in/regivaldo-silva/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-slate-400 transition-colors hover:text-accent-400"
@@ -80,11 +67,11 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </div>
-      </motion.div>
-    </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
-export default ContactPage;
+export default ContactSection;

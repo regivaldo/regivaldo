@@ -1,4 +1,3 @@
-import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import PortfolioCard from '../components/PortfolioCard';
 import { useGetPortfolios } from '../apis/use-get-portfolios';
@@ -23,14 +22,7 @@ const PortfolioPage = () => {
   const { data: items = [], isLoading: loading } = useGetPortfolios();
 
   return (
-    <div className="min-h-screen px-6 py-8 pb-20">
-      <Link
-        to="/"
-        className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
-      >
-        ← Desktop
-      </Link>
-
+    <div className="min-h-screen px-6 py-8 pb-8">
       <motion.div
         initial="hidden"
         animate="visible"
