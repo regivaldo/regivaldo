@@ -27,10 +27,10 @@ export default function Desktop() {
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-48px)] px-4 relative z-10">
       {/* Tagline */}
       <h1 className="gradient-text text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-center animate-fade-in">
-        Transforme sonhos em software
+        Regivaldo Fernandes
       </h1>
       <p className="text-slate-400 text-sm sm:text-base mb-12 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-        Regivaldo Fernandes
+        Transforme sonhos em software
       </p>
 
       {/* Icons grid */}
