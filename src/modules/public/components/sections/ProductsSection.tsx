@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import SectionTitle from '../SectionTitle';
 import ProductCard from '../ProductCard';
@@ -30,6 +31,16 @@ const ProductsSection = () => {
               <ProductCard {...p} />
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            to="/produtos"
+            className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-6 py-2.5 text-sm font-medium text-primary-300 transition hover:bg-primary-500/20 hover:text-white"
+          >
+            Ver todos os produtos
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>
