@@ -275,7 +275,7 @@ const HeroSection = () => {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-slate-400 text-base sm:text-lg mb-6 max-w-lg relative z-10"
       >
-        Transforme sonhos em software
+        Transforme ideias em software
       </motion.p>
 
       {/* Social links */}
