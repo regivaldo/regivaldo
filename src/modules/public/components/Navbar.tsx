@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router';
 import { MenuIcon, XIcon } from 'lucide-animated';
+import BrandMark from './BrandMark';
 import { ButtonLink, cn } from './ui';
 
 const links = [
@@ -39,9 +40,7 @@ const Navbar = () => {
     <nav className={cn('sticky top-0 z-50 transition-all duration-300', scrolled ? 'glass shadow-2xl shadow-black/20' : 'bg-dark/35 backdrop-blur-sm')}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <NavLink to="/" className="group flex items-center gap-3" aria-label="Regivaldo Fernandes">
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary-400/30 bg-primary-500/10 text-sm font-black text-primary-200 shadow-[0_0_28px_rgba(59,130,246,0.14)]">
-            RF
-          </span>
+          <BrandMark className="h-10 w-10 p-0.5" />
           <span className="hidden leading-tight sm:block">
             <span className="block text-sm font-bold tracking-tight text-slate-50">Regivaldo</span>
             <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-slate-500">Dev de sistemas</span>

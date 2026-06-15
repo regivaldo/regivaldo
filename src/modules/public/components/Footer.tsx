@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import { ArrowRightIcon, MailCheckIcon, MapPinIcon } from 'lucide-animated';
 import { socialLinks } from '../data/social-links';
 import { SocialIcon } from './PublicIcons';
+import BrandMark from './BrandMark';
 
 const quickLinks = [
   { to: '/sobre', label: 'Sobre' },
@@ -17,7 +18,7 @@ const Footer = () => {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_0.8fr_1fr] lg:px-8">
         <div>
           <Link to="/" className="inline-flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-primary-400/30 bg-primary-500/10 text-sm font-black text-primary-200">RF</span>
+            <BrandMark className="h-11 w-11 p-0.5" />
             <span>
               <span className="block text-base font-bold text-slate-50">Regivaldo Fernandes</span>
               <span className="block text-xs uppercase tracking-[0.2em] text-slate-500">Sites, sistemas e apps</span>
