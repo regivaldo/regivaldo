@@ -1,86 +1,48 @@
 import { motion } from 'motion/react';
+import { MailCheckIcon, MapPinIcon, MessageCircleIcon } from 'lucide-animated';
 import ContactForm from '../components/ContactForm';
-
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+import { socialLinks } from '../data/social-links';
+import { SocialIcon } from '../components/PublicIcons';
+import { IconFrame, PageHeader, SurfaceCard } from '../components/ui';
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen px-6 py-8 pb-8">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={container}
-        className="mt-6 max-w-5xl mx-auto"
-      >
-        {/* Header */}
-        <motion.div variants={item} className="mb-10">
-          <span className="text-5xl">✉️</span>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text">Contato</h1>
-          <p className="mt-2 text-slate-400">
-            Vamos conversar sobre o seu próximo projeto
-          </p>
-        </motion.div>
+    <div className="min-h-screen px-4 py-14 sm:px-6 lg:px-8">
+      <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="mx-auto max-w-7xl">
+        <PageHeader eyebrow="Contato" title="Conte o que você quer construir." description="Sites, sistemas, aplicativos ou consultoria técnica. Envie o contexto e eu retorno com um caminho claro para o projeto." />
 
-        {/* 2-column layout */}
-        <div className="grid gap-8 lg:grid-cols-5">
-          <motion.div variants={item} className="lg:col-span-3">
-            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
-              <ContactForm />
-            </div>
-          </motion.div>
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <SurfaceCard className="p-6 sm:p-8">
+            <ContactForm />
+          </SurfaceCard>
 
-          <motion.div variants={item} className="lg:col-span-2">
-            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6">
-              <h3 className="text-lg font-semibold text-slate-100">
-                Informações de contato
-              </h3>
-              <div className="mt-6 space-y-5">
-                <div>
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    E-mail
-                  </p>
-                  <p className="mt-1 text-sm text-slate-300">regivaldo@email.com</p>
-                </div>
-                <div>
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    Localização
-                  </p>
-                  <p className="mt-1 text-sm text-slate-300">Brasil</p>
-                </div>
-                <div>
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    Redes sociais
-                  </p>
-                  <div className="mt-2 flex gap-4">
-                    <a
-                      href="https://github.com/regivaldo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-slate-400 transition-colors hover:text-accent-400"
-                    >
-                      GitHub
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/regivaldo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-slate-400 transition-colors hover:text-accent-400"
-                    >
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
-              </div>
+          <SurfaceCard className="p-6 sm:p-8">
+            <IconFrame tone="accent">
+              <MessageCircleIcon size={22} />
+            </IconFrame>
+            <h2 className="mt-5 text-xl font-semibold text-slate-50">Canais de contato</h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-400">
+              Use o formulario ou fale diretamente por um dos canais profissionais.
+            </p>
+            <div className="mt-6 space-y-4">
+              <a href="mailto:regivaldorfs@gmail.com" className="flex items-center gap-3 text-sm text-slate-300 transition hover:text-accent-300">
+                <MailCheckIcon size={18} />
+                regivaldorfs@gmail.com
+              </a>
+              <p className="flex items-center gap-3 text-sm text-slate-300">
+                <MapPinIcon size={18} />
+                Brasil
+              </p>
             </div>
-          </motion.div>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+              {socialLinks.map((link) => (
+                <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-slate-300 transition hover:border-accent-400/40 hover:text-accent-300">
+                  <SocialIcon icon={link.icon} size={18} />
+                  <span>{link.label}</span>
+                </a>
+              ))}
+            </div>
+          </SurfaceCard>
         </div>
       </motion.div>
     </div>

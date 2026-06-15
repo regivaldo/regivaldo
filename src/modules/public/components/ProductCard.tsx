@@ -1,48 +1,36 @@
-import { useRef, type MouseEvent } from 'react';
-import { Link } from "react-router";
-import type { Product } from "../types";
+import { Link } from 'react-router';
+import type { Product } from '../types';
+import { CheckIcon, ProductIcon } from './PublicIcons';
+import { ArrowLabel, IconFrame, SurfaceCard } from './ui';
 
-const ProductCard = ({ slug, title, description, icon, tag, features }: Product) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMouse = (e: MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    ref.current.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-    ref.current.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-  };
-
+const ProductCard = ({ id, slug, title, description, tag, features }: Product) => {
   return (
-    <Link to={"/produtos/" + slug} className="block">
-      <div
-        ref={ref}
-        onMouseMove={handleMouse}
-        className="card-glow card-hover cursor-pointer rounded-xl border border-white/10 bg-surface p-6 transition-colors hover:border-accent-500/30 group"
-      >
-        <div className="flex items-start justify-between">
-          <span className="text-4xl transition-transform duration-300 group-hover:scale-110">{icon}</span>
+    <Link to={`/produtos/${slug}`} className="group block h-full">
+      <SurfaceCard className="card-hover flex h-full flex-col p-6">
+        <div className="flex items-start justify-between gap-4">
+          <IconFrame tone="accent">
+            <ProductIcon id={id} />
+          </IconFrame>
           {tag && (
-            <span className="rounded-full bg-accent-500/15 px-2.5 py-0.5 text-[11px] font-medium text-accent-400">
+            <span className="rounded-full border border-accent-400/25 bg-accent-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-300">
               {tag}
             </span>
           )}
         </div>
-        <h3 className="mt-4 text-xl font-semibold text-slate-100">{title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-slate-400">
-          {description}
-        </p>
-        <ul className="mt-4 space-y-1">
-          {features.map((f) => (
-            <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
-              <span className="text-accent-500">&#10003;</span>
-              {f}
+        <h3 className="mt-5 text-xl font-semibold text-slate-50">{title}</h3>
+        <p className="mt-3 text-sm leading-relaxed text-slate-400">{description}</p>
+        <ul className="mt-5 space-y-2">
+          {features.slice(0, 3).map((feature) => (
+            <li key={feature} className="flex gap-2 text-sm text-slate-300">
+              <CheckIcon size={14} className="mt-0.5 shrink-0 text-primary-300" />
+              <span>{feature}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm font-medium text-accent-400 transition-all duration-300 group-hover:translate-x-1">
-          Ver detalhes →
+        <p className="mt-auto pt-5 text-sm font-semibold text-accent-300">
+          <ArrowLabel>Ver detalhes</ArrowLabel>
         </p>
-      </div>
+      </SurfaceCard>
     </Link>
   );
 };

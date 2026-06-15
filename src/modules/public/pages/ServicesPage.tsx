@@ -1,93 +1,46 @@
 import { motion } from 'motion/react';
+import { ClipboardCheckIcon, FolderCodeIcon, FileCheckIcon, SearchIcon } from 'lucide-animated';
 import ServiceCard from '../components/ServiceCard';
 import { useGetServices } from '../apis/use-get-services';
+import { IconFrame, PageHeader, SurfaceCard } from '../components/ui';
 
 const steps = [
-  {
-    number: '01',
-    title: 'Descoberta',
-    description: 'Entendo suas necessidades, objetivos e o contexto do projeto.',
-  },
-  {
-    number: '02',
-    title: 'Design',
-    description: 'Crio protótipos e defino a arquitetura ideal para sua solução.',
-  },
-  {
-    number: '03',
-    title: 'Desenvolvimento',
-    description: 'Codifico com qualidade, testes e entregas incrementais.',
-  },
-  {
-    number: '04',
-    title: 'Entrega',
-    description: 'Deploy, treinamento e suporte para garantir o sucesso do projeto.',
-  },
+  { icon: SearchIcon, title: 'Descoberta', description: 'Entendimento do objetivo, público, regras e prioridade do projeto.' },
+  { icon: ClipboardCheckIcon, title: 'Arquitetura', description: 'Definição de telas, fluxo, dados e caminho técnico para construir.' },
+  { icon: FolderCodeIcon, title: 'Desenvolvimento', description: 'Implementação incremental com interface responsiva e código organizado.' },
+  { icon: FileCheckIcon, title: 'Entrega', description: 'Publicação, validacao e orientação para uso da solução.' },
 ];
 
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const ServicesPage = () => {
-  const { data: services = [], isLoading: loading } = useGetServices();
+  const { data: services = [], isLoading } = useGetServices();
 
   return (
-    <div className="min-h-screen px-6 py-8 pb-8">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={container}
-        className="mt-6 max-w-5xl mx-auto"
-      >
-        {/* Header */}
-        <motion.div variants={item} className="mb-10">
-          <span className="text-5xl">⚙️</span>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text">Serviços</h1>
-          <p className="mt-2 text-slate-400">
-            Tudo o que você precisa para transformar sua ideia em realidade
-          </p>
-        </motion.div>
+    <div className="min-h-screen px-4 py-14 sm:px-6 lg:px-8">
+      <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="mx-auto max-w-7xl">
+        <PageHeader eyebrow="Serviços" title="Soluções digitais completas." description="Desenvolvimento de sites, sistemas, aplicativos, automações e consultoria técnica para tirar produtos do papel." />
 
-        {/* Services grid */}
-        {loading ? (
+        {isLoading ? (
           <p className="text-center text-slate-500">Carregando...</p>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 mb-12">
-            {services.map((s) => (
-              <motion.div key={s.id} variants={item}>
-                <ServiceCard {...s} />
-              </motion.div>
-            ))}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => <ServiceCard key={service.id} {...service} />)}
           </div>
         )}
 
-        {/* Como eu trabalho */}
-        <motion.div variants={item} className="pt-8 border-t border-white/5">
-          <h3 className="mb-8 text-center text-xl font-bold text-slate-100">
-            Como eu trabalho
-          </h3>
-        </motion.div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step) => (
-            <motion.div
-              key={step.number}
-              variants={item}
-              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 text-center"
-            >
-              <span className="gradient-text text-3xl font-extrabold">{step.number}</span>
-              <h4 className="mt-2 text-sm font-semibold text-slate-100">{step.title}</h4>
-              <p className="mt-1 text-xs text-slate-400">{step.description}</p>
-            </motion.div>
-          ))}
-        </div>
+        <SurfaceCard className="mt-10 p-6 sm:p-8">
+          <h2 className="text-xl font-semibold text-slate-50">Como eu trabalho</h2>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map(({ icon: Icon, title, description }) => (
+              <div key={title}>
+                <IconFrame tone="accent">
+                  <Icon size={20} />
+                </IconFrame>
+                <h3 className="mt-4 text-sm font-semibold text-slate-100">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">{description}</p>
+              </div>
+            ))}
+          </div>
+        </SurfaceCard>
       </motion.div>
     </div>
   );

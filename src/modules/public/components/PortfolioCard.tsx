@@ -1,56 +1,31 @@
-import { useRef, type MouseEvent } from 'react';
-import type { PortfolioItem } from "../types";
+import type { PortfolioItem } from '../types';
+import { PortfolioIcon } from './PublicIcons';
+import { ButtonAnchor, IconFrame, SurfaceCard } from './ui';
 
-const PortfolioCard = ({
-  title,
-  client,
-  description,
-  technologies,
-  link,
-}: PortfolioItem) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMouse = (e: MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    ref.current.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-    ref.current.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-  };
-
+const PortfolioCard = ({ id, title, client, description, technologies, link }: PortfolioItem) => {
   return (
-    <div
-      ref={ref}
-      onMouseMove={handleMouse}
-      className="card-glow card-hover rounded-xl border border-white/10 bg-surface p-6 group"
-    >
-      <p className="text-xs font-medium tracking-wider text-accent-400 uppercase">
-        {client}
-      </p>
-      <h3 className="mt-2 text-xl font-semibold text-slate-100">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-slate-400">
-        {description}
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {technologies.map((t) => (
-          <span
-            key={t}
-            className="rounded-full bg-primary-950 px-3 py-1 text-xs font-medium text-primary-300 transition-colors duration-300 group-hover:bg-primary-900"
-          >
-            {t}
+    <SurfaceCard className="card-hover h-full p-6">
+      <div className="flex items-start justify-between gap-4">
+        <IconFrame>
+          <PortfolioIcon id={id} />
+        </IconFrame>
+        <p className="text-right text-[11px] font-semibold uppercase tracking-[0.16em] text-accent-300">{client}</p>
+      </div>
+      <h3 className="mt-5 text-xl font-semibold text-slate-50">{title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-slate-400">{description}</p>
+      <div className="mt-5 flex flex-wrap gap-2">
+        {technologies.map((technology) => (
+          <span key={technology} className="rounded-full border border-primary-400/20 bg-primary-500/10 px-3 py-1 text-xs font-medium text-primary-200">
+            {technology}
           </span>
         ))}
       </div>
-      {link && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-400 hover:text-accent-300 transition-all duration-300 hover:translate-x-1"
-        >
-          Conheça →
-        </a>
+      {link && link !== '#' && (
+        <ButtonAnchor href={link} target="_blank" rel="noopener noreferrer" tone="ghost" className="mt-6 min-h-10 px-4 py-2">
+          Conhecer projeto
+        </ButtonAnchor>
       )}
-    </div>
+    </SurfaceCard>
   );
 };
 

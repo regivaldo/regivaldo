@@ -1,68 +1,27 @@
 import { motion } from 'motion/react';
 import PortfolioCard from '../components/PortfolioCard';
 import { useGetPortfolios } from '../apis/use-get-portfolios';
-
-const stats = [
-  { icon: '📂', value: '3', label: 'Projetos' },
-  { icon: '🛠️', value: '8+', label: 'Tecnologias' },
-  { icon: '📈', value: 'Resultados', label: 'Reais' },
-];
-
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+import { MetricCard, PageHeader } from '../components/ui';
 
 const PortfolioPage = () => {
-  const { data: items = [], isLoading: loading } = useGetPortfolios();
+  const { data: items = [], isLoading } = useGetPortfolios();
 
   return (
-    <div className="min-h-screen px-6 py-8 pb-8">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={container}
-        className="mt-6 max-w-5xl mx-auto"
-      >
-        {/* Header */}
-        <motion.div variants={item} className="mb-10">
-          <span className="text-5xl">🎨</span>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text">Portfólio</h1>
-          <p className="mt-2 text-slate-400">
-            Projetos reais com resultados comprovados
-          </p>
-        </motion.div>
+    <div className="min-h-screen px-4 py-14 sm:px-6 lg:px-8">
+      <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="mx-auto max-w-7xl">
+        <PageHeader eyebrow="Portfólio" title="Projetos com identidade, sistema e entrega." description="Uma seleção de trabalhos desenvolvidos para marcas, comunidades e produtos digitais." />
 
-        {/* Stat cards */}
-        <div className="grid grid-cols-3 gap-4 mb-10">
-          {stats.map((s) => (
-            <motion.div
-              key={s.label}
-              variants={item}
-              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-4 text-center"
-            >
-              <span className="text-2xl">{s.icon}</span>
-              <p className="mt-1 text-lg font-bold text-slate-100">{s.value}</p>
-              <p className="text-xs text-slate-400">{s.label}</p>
-            </motion.div>
-          ))}
+        <div className="mb-10 grid grid-cols-3 gap-3 sm:max-w-xl">
+          <MetricCard value="3" label="Projetos" />
+          <MetricCard value="8+" label="Tecnologias" tone="accent" />
+          <MetricCard value="Reais" label="Resultados" tone="neutral" />
         </div>
 
-        {/* Portfolio grid */}
-        {loading ? (
+        {isLoading ? (
           <p className="text-center text-slate-500">Carregando...</p>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2">
-            {items.map((i) => (
-              <motion.div key={i.id} variants={item}>
-                <PortfolioCard {...i} />
-              </motion.div>
-            ))}
+          <div className="grid gap-5 md:grid-cols-3">
+            {items.map((item) => <PortfolioCard key={item.id} {...item} />)}
           </div>
         )}
       </motion.div>

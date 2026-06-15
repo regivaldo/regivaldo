@@ -1,108 +1,61 @@
 import { Link, useParams } from 'react-router';
 import { motion } from 'motion/react';
+import { ArrowLeftIcon, ArrowUpRightIcon } from 'lucide-animated';
 import { products } from '../data/products';
-
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+import { CheckIcon, ProductIcon } from '../components/PublicIcons';
+import { ButtonAnchor, ButtonLink, IconFrame, PageHeader, SurfaceCard } from '../components/ui';
 
 const ProductDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const product = products.find((p) => p.slug === slug);
+  const product = products.find((item) => item.slug === slug);
 
   if (!product) {
     return (
-      <div className="min-h-screen px-6 py-8 pb-8">
-        <Link
-          to="/produtos"
-          className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
-        >
-          ← Produtos
-        </Link>
-        <div className="mt-20 text-center">
-          <span className="text-5xl">🔍</span>
-          <h1 className="mt-4 text-2xl font-bold text-slate-100">
-            Produto não encontrado
-          </h1>
-          <p className="mt-2 text-slate-400">
-            O produto que você procura não existe.
-          </p>
-          <Link
-            to="/produtos"
-            className="mt-6 inline-block rounded-lg bg-accent-600 px-6 py-2 text-sm font-medium text-white hover:bg-accent-500 transition-colors"
-          >
-            Ver todos os produtos
-          </Link>
+      <div className="min-h-screen px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <PageHeader eyebrow="Produto" title="Produto não encontrado" description="O produto que você procura não existe ou foi removido." align="center" />
+          <ButtonLink to="/produtos">Ver todos os produtos</ButtonLink>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen px-6 py-8 pb-8">
-      <Link
-        to="/produtos"
-        className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
-      >
-        ← Produtos
-      </Link>
+    <div className="min-h-screen px-4 py-14 sm:px-6 lg:px-8">
+      <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="mx-auto max-w-7xl">
+        <Link to="/produtos" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-400 transition hover:text-accent-300">
+          <ArrowLeftIcon size={16} />
+          Produtos
+        </Link>
 
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={container}
-        className="mt-6 max-w-3xl mx-auto"
-      >
-        {/* Header */}
-        <motion.div variants={item} className="mb-10 text-center">
-          <span className="text-7xl">{product.icon}</span>
-          <h1 className="mt-4 text-3xl sm:text-4xl font-bold gradient-text">
-            {product.title}
-          </h1>
-          <p className="mt-3 text-lg text-slate-400 leading-relaxed max-w-xl mx-auto">
-            {product.description}
-          </p>
-        </motion.div>
+        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <SurfaceCard className="p-6 sm:p-8">
+            <IconFrame tone="accent" className="h-14 w-14">
+              <ProductIcon id={product.id} size={28} />
+            </IconFrame>
+            {product.tag && <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-accent-300">{product.tag}</p>}
+            <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-50 sm:text-5xl">{product.title}</h1>
+            <p className="mt-5 text-base leading-relaxed text-slate-300">{product.description}</p>
+            {product.link && (
+              <ButtonAnchor href={product.link} target="_blank" rel="noopener noreferrer" className="mt-8">
+                {product.linkLabel ?? 'Acessar produto'}
+                <ArrowUpRightIcon size={16} />
+              </ButtonAnchor>
+            )}
+          </SurfaceCard>
 
-        {/* Features */}
-        <motion.div variants={item} className="mb-10">
-          <h2 className="text-xl font-semibold text-slate-100 mb-4">
-            Funcionalidades
-          </h2>
-          <ul className="space-y-3">
-            {product.features.map((feature, index) => (
-              <motion.li
-                key={feature}
-                variants={item}
-                custom={index}
-                className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur p-4"
-              >
-                <span className="text-accent-500 text-lg">✓</span>
-                <span className="text-slate-200">{feature}</span>
-              </motion.li>
-            ))}
-          </ul>
-        </motion.div>
-
-        {/* External link */}
-        {product.link && (
-          <motion.div variants={item} className="text-center">
-            <a
-              href={product.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-accent-600 px-8 py-3 text-sm font-medium text-white hover:bg-accent-500 transition-colors"
-            >
-              {product.linkLabel ?? 'Acesse o site'} →
-            </a>
-          </motion.div>
-        )}
+          <SurfaceCard className="p-6 sm:p-8">
+            <h2 className="text-xl font-semibold text-slate-50">Funcionalidades</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {product.features.map((feature) => (
+                <div key={feature} className="flex gap-3 rounded-lg border border-white/10 bg-white/[0.035] p-4 text-sm leading-relaxed text-slate-300">
+                  <CheckIcon size={16} className="mt-0.5 shrink-0 text-accent-300" />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </SurfaceCard>
+        </div>
       </motion.div>
     </div>
   );

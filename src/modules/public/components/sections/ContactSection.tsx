@@ -1,78 +1,54 @@
 import { motion } from 'motion/react';
+import { MailCheckIcon, MapPinIcon, MessageCircleIcon } from 'lucide-animated';
 import SectionTitle from '../SectionTitle';
 import ContactForm from '../ContactForm';
+import { socialLinks } from '../../data/social-links';
+import { SocialIcon } from '../PublicIcons';
+import { IconFrame, SurfaceCard } from '../ui';
 
 const ContactSection = () => {
   return (
-    <section id="contato" className="section-alt py-20 px-4">
-      <div className="mx-auto max-w-5xl">
-        <SectionTitle
-          title="Contato"
-          subtitle="Vamos conversar sobre o seu próximo projeto"
-        />
+    <section id="contato" className="section-alt px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <SectionTitle eyebrow="Contato" title="Vamos tirar sua ideia do rascunho." subtitle="Envie uma mensagem com o contexto do projeto e eu retorno com os próximos passos." />
 
-        <div className="grid gap-8 lg:grid-cols-5">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-3"
-          >
-            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/15 transition-colors duration-300">
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5 }}>
+            <SurfaceCard className="p-6 sm:p-8">
               <ContactForm />
-            </div>
+            </SurfaceCard>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-2"
-          >
-            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:border-white/15 transition-colors duration-300">
-              <h3 className="text-lg font-semibold text-slate-100">
-                Informações de contato
-              </h3>
-              <div className="mt-6 space-y-5">
-                <div>
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    E-mail
-                  </p>
-                  <p className="mt-1 text-sm text-slate-300">regivaldo@email.com</p>
-                </div>
-                <div>
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    Localização
-                  </p>
-                  <p className="mt-1 text-sm text-slate-300">Brasil</p>
-                </div>
-                <div>
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    Redes sociais
-                  </p>
-                  <div className="mt-2 flex gap-4">
-                    <a
-                      href="https://github.com/regivaldo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-slate-400 transition-all duration-300 hover:text-accent-400 hover:translate-x-0.5"
-                    >
-                      GitHub
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/regivaldo-silva/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-slate-400 transition-all duration-300 hover:text-accent-400 hover:translate-x-0.5"
-                    >
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
+          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5, delay: 0.1 }}>
+            <SurfaceCard className="h-full p-6 sm:p-8">
+              <IconFrame tone="accent">
+                <MessageCircleIcon size={22} />
+              </IconFrame>
+              <h3 className="mt-5 text-xl font-semibold text-slate-50">Canais diretos</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                Prefere falar por rede social ou WhatsApp? Use um dos canais abaixo.
+              </p>
+
+              <div className="mt-6 space-y-4">
+                <a href="mailto:regivaldorfs@gmail.com" className="flex items-center gap-3 text-sm text-slate-300 transition hover:text-accent-300">
+                  <MailCheckIcon size={18} />
+                  regivaldorfs@gmail.com
+                </a>
+                <p className="flex items-center gap-3 text-sm text-slate-300">
+                  <MapPinIcon size={18} />
+                  Brasil
+                </p>
               </div>
-            </div>
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                {socialLinks.map((link) => (
+                  <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-medium text-slate-300 transition hover:border-accent-400/40 hover:text-accent-300">
+                    <SocialIcon icon={link.icon} size={17} />
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </SurfaceCard>
           </motion.div>
         </div>
       </div>
