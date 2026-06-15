@@ -34,5 +34,4 @@
     <path d="M37 18L27 46" stroke="url(#stroke)" stroke-width="4" stroke-linecap="round"/>
   </g>
 
-  <text x="32" y="38" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" letter-spacing="0" fill="url(#mark)">RF</text>
 </svg>
