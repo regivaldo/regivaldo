@@ -3,9 +3,10 @@
   "private": true,
   "scripts": {
     "dev": "python3 -m http.server 8000 --bind 127.0.0.1",
-    "check": "python3 scripts/check.py && node --check assets/js/site.js",
+    "check": "python3 scripts/check.py && python3 scripts/check-seo.py && node --check assets/js/site.js",
     "test:browser": "node scripts/browser-check.cjs",
-    "build": "python3 scripts/build.py"
+    "build": "python3 scripts/build.py",
+    "social:generate": "node scripts/social-cards.cjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

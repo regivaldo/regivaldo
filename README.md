@@ -4,7 +4,7 @@ Site estático com atmosfera de cinema sombrio para apresentar Regivaldo Fernand
 
 ## Executar localmente
 
-Requer Python 3. Não há dependências de produção, backend, framework ou etapa obrigatória de compilação.
+Requer Python 3. Não há dependências de produção, backend ou framework. O desenvolvimento usa os HTML diretamente; a publicação usa o build com o domínio configurado para completar os metadados de SEO.
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
@@ -24,7 +24,9 @@ assets/brand/              Monogramas SVG claro/escuro e favicon
 assets/images/             Originais e derivados WebP
 assets/css/site.css        Layout, temas e responsividade
 assets/js/site.js          Menu, preferências e efeitos progressivos
-scripts/                   Validação, teste de navegador e cópia para dist
+assets/social/             Cinco miniaturas JPEG de compartilhamento (1200 × 630)
+site.json                  Domínio público definitivo
+scripts/                   Validação, SEO, miniaturas e build para dist
 tasks/                    Índice e sete tarefas concluídas
 ```
 
@@ -59,8 +61,7 @@ O monograma RF foi desenhado com caminhos SVG entrelaçados e uma linha inclinad
 Checagens locais sem instalação:
 
 ```sh
-python3 scripts/check.py
-node --check assets/js/site.js
+npm run check
 ```
 
 Para reproduzir os testes de navegador, com Node.js e npm disponíveis:
@@ -78,21 +79,33 @@ Resultados da entrega são registrados em [tasks/007-validacao-documentacao.md](
 
 ## Atualizar conteúdo
 
-Edite o HTML da rota correspondente, incluindo título, descrição e metadados Open Graph. Cabeçalho e rodapé são repetidos intencionalmente para servir documentos completos sem JavaScript ou build; mudanças nesses elementos devem ser aplicadas aos cinco arquivos, preservando a versão inglesa. Estilos e comportamentos ficam centralizados em `assets/`.
+Edite o HTML da rota correspondente, incluindo título e descrição. O build usa esses dois campos como fonte para Open Graph e Twitter Cards, evitando divergências entre as prévias. Cabeçalho e rodapé são repetidos intencionalmente para servir documentos completos sem JavaScript ou build; mudanças nesses elementos devem ser aplicadas aos cinco arquivos, preservando a versão inglesa. Estilos e comportamentos ficam centralizados em `assets/`.
 
-Para trocar uma imagem, preserve o original, gere o WebP correspondente e atualize `src`, `width`, `height`, texto alternativo e imagem de compartilhamento. A ferramenta usada para os derivados foi Pillow (opcional, somente para processamento de imagens): `ImageOps.exif_transpose`, conversão RGB, `thumbnail((1200, 1400))`, `save(..., quality=85, method=6)`.
+Para trocar uma imagem, preserve o original, gere o WebP correspondente e atualize `src`, `width`, `height` e texto alternativo. Atualize a composição em `scripts/social-cards.cjs` e execute `npm run social:generate` para renovar as miniaturas de compartilhamento (requer npm ci e Chromium do Playwright). As composições usam HTML/CSS e as imagens existentes, com uma miniatura própria por página; a edição inglesa identifica a capa portuguesa. A ferramenta usada para os derivados foi Pillow (opcional, somente para processamento de imagens): `ImageOps.exif_transpose`, conversão RGB, `thumbnail((1200, 1400))`, `save(..., quality=85, method=6)`.
 
 Para incluir uma obra, copie uma página em `obras/`, crie a rota, substitua texto e materiais e confira o ASIN. Defina a paleta por variáveis CSS (`--bg`, `--accent`, `--muted`), acrescente a obra ao percurso inicial e atualize as rotas e destinos em `scripts/check.py` e `scripts/browser-check.cjs`. Execute as verificações novamente.
 
 ## Preparar hospedagem estática
 
+Defina o domínio definitivo no campo `url` de `site.json`, por exemplo `{"url": "https://seu-dominio.com.br"}`. O valor deve usar HTTPS e não pode conter caminho, porta, parâmetros ou fragmento. A hospedagem na raiz é obrigatória.
+
 ```sh
-python3 scripts/build.py
+npm run build
 python3 -m http.server 8001 --bind 127.0.0.1 --directory dist
 ```
 
-`dist/` contém somente HTML, imagens, CSS, JS e SVG; fica fora do Git. O script atualiza as pastas públicas geradas, sem alterar os fontes. A hospedagem deve suportar `index.html` em subdiretórios, sem redirecionar todas as rotas para a página inicial.
+Para informar o domínio pelo ambiente, use `SITE_URL=https://seu-dominio.com.br npm run build`. Essa variável tem prioridade sobre `site.json`. Sem um domínio configurado, o build falha antes de alterar `dist/`, para evitar publicar URLs inventadas ou locais. Publique **o conteúdo de `dist/`**: os HTML de desenvolvimento na raiz não contêm os campos que dependem do domínio.
 
-Antes de publicar, definir o domínio definitivo, adicionar URLs canônicas e `og:url`, converter `og:image` para URLs absolutas e preparar sitemap/robots com esse domínio. Os metadados locais estão presentes, mas a prévia social externa depende dessas URLs públicas. Definir também cache e HTTPS no provedor. Não há domínio ou deploy configurado nesta entrega.
+`dist/` contém HTML, imagens, CSS, JS, SVG, `robots.txt` e `sitemap.xml`; fica fora do Git. O script atualiza as pastas públicas geradas, sem alterar os fontes. A hospedagem deve suportar `index.html` em subdiretórios, sem redirecionar todas as rotas para a página inicial.
+
+O build inclui, em cada HTML, URL canônica, Open Graph e Twitter Cards completos com imagem JPEG exclusiva e URL absoluta, dimensões e texto alternativo. Também gera JSON-LD (`WebSite`, `Person`, `WebPage`/`AboutPage`, `Book` e breadcrumbs), sem inventar datas, ISBNs, avaliações ou preços. As edições portuguesa e inglesa de Suicídio têm `hreflang` recíproco. O sitemap lista as cinco URLs canônicas e o robots.txt permite o rastreamento e informa a localização do sitemap. Não são usadas datas artificiais de modificação.
+
+`npm run check` valida as cinco páginas, a geração dos metadados, as imagens sociais, o JSON-LD, os idiomas, o sitemap e o tratamento de domínios inválidos. `scripts/check-seo.py` usa um domínio reservado de teste apenas em memória; ele nunca é gravado na configuração de produção.
+
+Após publicar, confira se as cinco páginas, as imagens sociais, `/robots.txt` e `/sitemap.xml` respondem publicamente com HTTP 200, sem autenticação ou bloqueio de robôs. Configure HTTPS e redirecionamentos permanentes no provedor para escolher uma só versão do domínio (www ou sem www), redirecionar HTTP para HTTPS e normalizar URLs com `/index.html` para a rota canônica.
+
+Verifique a propriedade no Google Search Console e envie `/sitemap.xml`. Use a inspeção de URL para acompanhar a indexação e o Rich Results Test para conferir os dados estruturados. Redes sociais podem manter prévias antigas em cache; após a publicação, solicite uma nova leitura no depurador da plataforma. A presença de metadados e sitemap não garante indexação, posição no Google ou exibição idêntica em todas as plataformas.
+
+Referências: [Guia de SEO do Google](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), [sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap) e [Open Graph](https://ogp.me/). Nenhuma publicação ou configuração de serviço externo foi realizada.
 
 Consulte a sequência de implementação em [tasks/README.md](tasks/README.md).
