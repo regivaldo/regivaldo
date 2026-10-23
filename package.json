@@ -1,0 +1,14 @@
+{
+  "name": "regivaldo-fernandes-site",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8000 --bind 127.0.0.1",
+    "check": "python3 scripts/check.py && node --check assets/js/site.js",
+    "test:browser": "node scripts/browser-check.cjs",
+    "build": "python3 scripts/build.py"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "playwright": "1.64.1"
+  }
+}
